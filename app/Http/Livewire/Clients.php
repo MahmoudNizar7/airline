@@ -41,7 +41,7 @@
 
         public function render()
         {
-            return view('livewire.clients.clients');
+            return view('livewire.clients');
         }
 
 

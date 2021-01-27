@@ -88,6 +88,8 @@
                                 <div class="col-9">
                                     <input name="password" wire:model="password" type="password"
                                            class="@error('password') is-invalid @enderror form-control m-input">
+                                    @if($client_id)<span class="text-warning" role="alert">اتركه فارغاً إذا كنت لا تريد تغيير كلمة المرور</span>@endif
+
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ __($message) }}</strong>

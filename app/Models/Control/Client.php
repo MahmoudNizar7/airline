@@ -12,4 +12,15 @@
 
         protected $guarded = [];
         protected $hidden = ['password'];
+
+        public function balance()
+        {
+            return $this->hasOne(Balance::class, 'client_id', 'id');
+        }
+
+        public function movements()
+        {
+            return $this->hasMany(Movement::class, 'client_id', 'id');
+        }
+
     }
