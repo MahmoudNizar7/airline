@@ -1,7 +1,7 @@
 @extends('control.app')
 @section('content')
 
-    @php($title = "لوحة التحكم | كل رصيد")
+    @php($title = "لوحة التحكم | كل الأرصدة")
 
     <div class="m-grid__item m-grid__item--fluid m-wrapper">
         <div class="m-content">

@@ -1,11 +1,9 @@
 @extends('control.app')
 @section('content')
 
-    @php($title = "لوحة التحكم | تعديل الرحلة")
+    @php($title = "لوحة التحكم | إضافة دولة")
 
-    <livewire:trips :trip="$trip"/>
-
-
+    <livewire:countries />
 @stop
 @section('style')
     <style>

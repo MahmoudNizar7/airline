@@ -58,7 +58,7 @@
             $clients->attachRole('client');
 
             $this->alert('success', 'تم إضافة العميل بنجاح', [
-                'position' => 'top-end',
+                'position' => 'top-right',
                 'timer' => 3000,
                 'toast' => true,
                 'text' => '',
@@ -78,7 +78,7 @@
                 'password' => bcrypt($this->password),
             ];
 
-            if ($this->image != '') {
+            if ($this->image != $this->image_name) {
                 $data['image'] = $this->image_name;
             }
             return $data;
@@ -113,7 +113,7 @@
 
             $client->update($this->modelData());
             $this->alert('success', 'تم تعديل العميل بنجاح', [
-                'position' => 'top-end',
+                'position' => 'top-right',
                 'timer' => 3000,
                 'toast' => true,
                 'text' => '',

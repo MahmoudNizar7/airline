@@ -21,6 +21,24 @@
         public $image;
         public $image_name;
 
+        public $trip;
+
+        public function mount($trip = '')
+        {
+            if ($trip != '') {
+                $this->from = $trip->from;
+                $this->to = $trip->to;
+                $this->travel_no = $trip->travel_no;
+                $this->air_line = $trip->air_line;
+                $this->price = $trip->price;
+                $this->baby_price = $trip->baby_price;
+                $this->seats = $trip->seats;
+                $this->date = $trip->date;
+                $this->image = $trip->image;
+                $this->image_name = $trip->image;
+            }
+        }
+
         public function render()
         {
             return view('livewire.trips');
@@ -39,7 +57,7 @@
 
 
             $this->alert('success', 'تم إضافة الرحلة بنجاح', [
-                'position' => 'top-end',
+                'position' => 'top-right',
                 'timer' => 3000,
                 'toast' => true,
                 'text' => '',
@@ -61,7 +79,7 @@
                 'date' => $this->date,
             ];
 
-            if ($this->image != '') {
+            if ($this->image != $this->image_name) {
                 $data['image'] = $this->image_name;
             }
             return $data;
@@ -80,6 +98,33 @@
             $this->image = null;
         }
 
+        public function update()
+        {
+            $this->validate();
+            $trip = Trip::find($this->trip->id);
+
+            if ($this->image != $trip->image) {
+
+                if (File::exists('assets/images/trips/' . $trip->image)) {
+                    unlink('assets/images/trips/' . $trip->image);
+                }
+
+                $this->image_name = md5($this->image . microtime() . '.' . $this->image->extension());
+                $this->image->storeAS('/', $this->image_name, 'trips');
+
+            }
+
+            $trip->update($this->modelData());
+            $this->alert('success', 'تم تعديل الرحلة بنجاح', [
+                'position' => 'top-right',
+                'timer' => 3000,
+                'toast' => true,
+                'text' => '',
+            ]);
+
+            $this->resetFormData();
+        }
+
         public function rules()
         {
             $role = ['required'];
@@ -95,5 +140,9 @@
             ];
         }
 
+        public function destroy()
+        {
+
+        }
 
     }

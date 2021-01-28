@@ -104,7 +104,7 @@
                             <div class="form-group m-form__group row mb-25">
                                 <label for="phone" class="col-3 col-form-label">التاريخ و الوقت</label>
                                 <div class="col-9">
-                                    <input name="date" wire:model="date" type="datetime-local" value="" class="@error('date') is-invalid @enderror form-control m-input">
+                                    <input name="date" wire:model="date" type="datetime-local" class="@error('date') is-invalid @enderror form-control m-input">
                                     @error('date')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ __($message) }}</strong>
@@ -120,7 +120,11 @@
                     <div class="m-portlet m-portlet--tab">
                         <div class="m-portlet__body">
                             <div class="m-portlet__head-title col-sm-12">
-                                <button type="submit" class="btn btn-success col-sm-12" wire:click="store">حفظ</button>
+                                @if($trip != '')
+                                    <button type="submit" class="btn btn-success col-sm-12" wire:click="update">تعديل</button>
+                                @else
+                                    <button type="submit" class="btn btn-success col-sm-12" wire:click="store">حفظ</button>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -132,7 +136,7 @@
 
                                     @if($image)
                                         <div class="mt-1 flex rounded-md shadow-sm">
-                                            <img src="{{ $image->temporaryUrl() }} " width="200">
+                                            <img src="{{ $image === $image_name ? asset('assets/images/trips/' . $image) : $image->temporaryUrl() }}" width="200">
                                         </div>
                                     @endif
 
@@ -145,7 +149,12 @@
                                             <strong>{{ __($message) }}</strong>
                                         </span>
                                     @enderror
-                                    <label id="label" for="file" class="btn btn-success col-sm-12"><i class="material-icons"></i>اختر الصورة </label>
+
+                                        @if($trip != '')
+                                            <label id="label" for="file" class="btn btn-success col-sm-12"><i class="material-icons"></i>تعديل الصورة </label>
+                                        @else
+                                            <label id="label" for="file" class="btn btn-success col-sm-12"><i class="material-icons"></i>اختر صورة </label>
+                                        @endif
 
                                 </div>
                             </div>

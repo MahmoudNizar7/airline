@@ -65,15 +65,15 @@
 
                                                     <td>
                                                         <div class="d-inline-flex">
-                                                            <a href="{{ route('clients.edit',$trip->id) }}"
+                                                            <a href="{{ route('trips.edit' , $trip->id) }}"
                                                                class="btn btn-info m-btn--custom d-flex align-items-center justify-content-center fs-10 p-0 w-65 h-30 mr-3">
                                                                 <i class="fa fa-edit pr-2 fs-10"></i><span>تعديل</span>
                                                             </a>
                                                             <a href="javascript:void (0)"
                                                                class="btn btn-danger m-btn--custom d-flex align-items-center justify-content-center fs-10 p-0 w-65 h-30"
-                                                               onclick="if (confirm('Are you sure?')){document.getElementById('delete-{{ $trip->id }}').submit();}else { return false;}">
+                                                               onclick="if (confirm('هل انت منأكد من حذف الرحلة؟')){document.getElementById('delete-{{ $trip->id }}').submit();}else { return false;}">
                                                                 <i class="fa fa-trash-alt pr-2 fs-10"></i>حذف</a>
-                                                            <form action="{{ route('clients.destroy',$trip->id) }}"
+                                                            <form action="{{ route('trips.destroy',$trip->id) }}"
                                                                   method="post" id="delete-{{ $trip->id }}"
                                                                   style="display: none;">
                                                                 @csrf

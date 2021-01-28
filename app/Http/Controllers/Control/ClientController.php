@@ -60,7 +60,5 @@
 
             Alert::success('تم حذف العميل');
             return redirect()->back();
-
-
         }
     }

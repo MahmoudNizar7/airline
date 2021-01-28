@@ -68,7 +68,7 @@
                                                             </a>
                                                             <a href="javascript:void (0)"
                                                                class="btn btn-danger m-btn--custom d-flex align-items-center justify-content-center fs-10 p-0 w-65 h-30"
-                                                               onclick="if (confirm('Are you sure?')){document.getElementById('delete-{{ $client->id }}').submit();}else { return false;}">
+                                                               onclick="if (confirm('هل انت متأكد من حذف العميل؟')){document.getElementById('delete-{{ $client->id }}').submit();}else { return false;}">
                                                                 <i class="fa fa-trash-alt pr-2 fs-10"></i>حذف</a>
                                                             <form action="{{ route('clients.destroy',$client->id) }}"
                                                                   method="post" id="delete-{{ $client->id }}"

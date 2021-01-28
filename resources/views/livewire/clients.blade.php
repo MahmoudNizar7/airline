@@ -9,7 +9,7 @@
                             <div class="m-portlet__head-caption">
                                 <div class="m-portlet__head-title">
                                     <h3 class="m-portlet__head-text">
-                                        العملاء
+                                         إضافة عميل
                                     </h3>
                                     <a href="{{ route('clients.index') }}" class="btn btn-default "
                                        style="color: black; margin-right: 450px">كل العملاء</a>

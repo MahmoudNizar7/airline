@@ -5,6 +5,7 @@
     use App\Http\Controllers\Controller;
     use App\Models\Control\Trip;
     use Illuminate\Http\Request;
+    use RealRashid\SweetAlert\Facades\Alert;
 
     class TripController extends Controller
     {
@@ -43,7 +44,7 @@
 
         public function edit(Trip $trip)
         {
-            //
+            return view('control/trips/edit',compact('trip'));
         }
 
 
@@ -52,9 +53,15 @@
             //
         }
 
-
         public function destroy(Trip $trip)
         {
-            //
+            if ($trip->image != '') {
+                unlink(public_path('assets/images/trips/') . $trip->image);
+            }
+            $trip->delete();
+
+            Alert::success('تم حذف الرحلة');
+            return redirect()->back();
+
         }
     }
