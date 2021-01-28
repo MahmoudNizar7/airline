@@ -15,8 +15,8 @@ class CreateMovementsTable extends Migration
     {
         Schema::create('movements', function (Blueprint $table) {
             $table->id();
-            $table->integer('client_id')->unsigned();
-            $table->integer('balance_id')->unsigned();
+            $table->foreignId('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreignId('balance_id')->references('id')->on('balances')->onDelete('cascade');;
             $table->String('value');
             $table->integer('remainder');
             $table->String('about');

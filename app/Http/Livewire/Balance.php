@@ -83,13 +83,11 @@
         public function resetFormData()
         {
             $this->balance = null;
-            $this->client_id = null;
         }
 
 
         public function rules()
         {
-
             $client = Client::with(['balance'])->find($this->client_id);
 
             return [

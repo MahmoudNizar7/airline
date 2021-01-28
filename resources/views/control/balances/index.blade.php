@@ -39,7 +39,7 @@
                                             @foreach($movements as $index => $movement)
                                                 <tr>
                                                     <td>{{ $index+1 }}</td>
-                                                    <td>{{ $movement->clients->name }}</td>
+                                                    <td><a href="{{ route('clients.show',$movement->clients->id) }}">{{ $movement->clients->name }}</a></td>
                                                     <td>{{ $movement->value }}</td>
                                                     <td>{{ $movement->remainder }}</td>
                                                     <td>{{ $movement->about }}</td>
@@ -49,9 +49,8 @@
                                         </tbody>
                                     </table>
                                     <div class="float-right">
-                                        {{--                                        {{ $balances->links('pagination::bootstrap-4') }}--}}
+                                        {{--{{ $balances->links('pagination::bootstrap-4') }}--}}
                                         {{ $movements->appends(request()->query())->links('pagination::bootstrap-4') }}
-                                        {{--{{ $balances->links() }}--}}
                                     </div>
                                 </div>
                             </div>

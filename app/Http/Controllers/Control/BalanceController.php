@@ -11,7 +11,7 @@
     {
         public function index()
         {
-            $movements = Movement::orderBy('id')->paginate(10);
+            $movements = Movement::orderBy('client_id')->paginate(10);
             // $balances = Balance::orderBy('id', 'desc')->paginate(10);
 
             return view('control.balances.index', compact('movements'));

@@ -6,8 +6,22 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="m-portlet m-portlet--tab">
-                            <div class="m-portlet__body">
 
+
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            الأرصدة
+                                        </h3>
+                                        <a href="{{ route('balances.index') }}" class="btn btn-default " style="color: black; margin-right: 450px">كل الأرصدة</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="m-portlet__body">
                                 <div class="mb-40 m-form__group row">
                                     <label for="example-text-input" class="col-2 col-form-label">العميل</label>
                                     <div class="col-10">

@@ -38,7 +38,7 @@
 
         public function show(Client $client)
         {
-            //
+            return view('control.clients.show', compact('client'));
         }
 
         public function edit(Client $client)
