@@ -35,14 +35,14 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if($balances->count() > 0)
-                                            @foreach($balances as $index => $balance)
+                                        @if($movements->count() > 0)
+                                            @foreach($movements as $index => $movement)
                                                 <tr>
                                                     <td>{{ $index+1 }}</td>
-                                                    <td>{{ $balance->client->name }}</td>
-                                                    <td>{{ $balance->balance }}</td>
-                                                    <td>{{ $balance->balance }}</td>
-                                                    <td>{{ $balance->balance }}</td>
+                                                    <td>{{ $movement->clients->name }}</td>
+                                                    <td>{{ $movement->value }}</td>
+                                                    <td>{{ $movement->remainder }}</td>
+                                                    <td>{{ $movement->about }}</td>
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -50,7 +50,7 @@
                                     </table>
                                     <div class="float-right">
                                         {{--                                        {{ $balances->links('pagination::bootstrap-4') }}--}}
-                                        {{ $balances->appends(request()->query())->links('pagination::bootstrap-4') }}
+                                        {{ $movements->appends(request()->query())->links('pagination::bootstrap-4') }}
                                         {{--{{ $balances->links() }}--}}
                                     </div>
                                 </div>

@@ -15,8 +15,10 @@ class CreateMovementsTable extends Migration
     {
         Schema::create('movements', function (Blueprint $table) {
             $table->id();
-            $table->integer('client_id');
-            $table->integer('value');
+            $table->integer('client_id')->unsigned();
+            $table->integer('balance_id')->unsigned();
+            $table->String('value');
+            $table->integer('remainder');
             $table->String('about');
             $table->timestamps();
         });

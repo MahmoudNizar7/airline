@@ -11,7 +11,7 @@
                                 <div class="mb-40 m-form__group row">
                                     <label for="example-text-input" class="col-2 col-form-label">العميل</label>
                                     <div class="col-10">
-                                        <select wire:model="client_id" name="client_id" id="" class="form-control m-bootstrap-select m_selectpicker" title="اختر العميل">
+                                        <select wire:model="client_id" name="client_id" id="" class="@error('client_id') is-invalid @enderror form-control m-bootstrap-select--square m_selectpicker" title="اختر العميل">
                                             @foreach($clients as $client)
                                                 <option value="{{ $client->id }}">{{ $client->name }}</option>
                                             @endforeach

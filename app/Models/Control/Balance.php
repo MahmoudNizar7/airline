@@ -17,4 +17,10 @@
             return $this->belongsTo(Client::class, 'client_id', 'id');
         }
 
+        public function movements()
+        {
+            return $this->hasMany(Movement::class, 'balance_id', 'id');
+        }
+
+
     }

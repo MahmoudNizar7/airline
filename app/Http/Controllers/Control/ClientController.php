@@ -43,7 +43,7 @@
 
         public function edit(Client $client)
         {
-            return view('control.clients.edit',compact('client'));
+            return view('control.clients.edit', compact('client'));
         }
 
         public function update(Request $request, Client $client)

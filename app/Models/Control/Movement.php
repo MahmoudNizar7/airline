@@ -16,4 +16,9 @@
             return $this->belongsTo(Client::class, 'client_id', 'id');
         }
 
+        public function balances()
+        {
+            return $this->belongsTo(Balance::class, 'balance_id', 'id');
+        }
+
     }

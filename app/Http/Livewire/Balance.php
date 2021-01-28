@@ -30,10 +30,35 @@
         public function store()
         {
             $this->validate();
-            \App\Models\Control\Balance::create($this->modelData());
+
+            $final_balance = 0;
+            $balance_id = null;
+
+            $client = Client::with(['balance'])->find($this->client_id);
+
+            if ($client->balance != '') {
+
+                $final_balance = $client->balance->balance + $this->balance;
+
+                $client->balance->update([
+                    'balance' => $final_balance
+                ]);
+
+                $balance_id = $client->balance->id;
+
+            } else {
+
+                $final_balance = $this->balance;
+                $balance = \App\Models\Control\Balance::create($this->modelData());
+                $balance_id = $balance->id;
+
+            }
+
             Movement::create([
                 'client_id' => $this->client_id,
-                'value' => +$this->balance,
+                'balance_id' => $balance_id,
+                'value' => $this->balance,
+                'remainder' => $final_balance,
                 'about' => 'شحن الرصيد'
             ]);
 
@@ -64,9 +89,12 @@
 
         public function rules()
         {
+
+            $client = Client::with(['balance'])->find($this->client_id);
+
             return [
                 'balance' => ['required'],
-                'client_id' => ['required', Rule::unique('balances', 'client_id')],
+                'client_id' => ['required', $client->balance != null ? Rule::unique('balances', 'client_id')->ignore($client->balance['id']) : Rule::unique('balances', 'client_id')],
             ];
         }
 
