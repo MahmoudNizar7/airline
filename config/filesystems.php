@@ -42,10 +42,17 @@
                 'visibility' => 'public',
             ],
 
-            'uploads' => [
+            'clients' => [
                 'driver' => 'local',
                 'root' => public_path('assets/images/clients'),
                 'url' => '/assets/images/clients',
+                'visibility' => 'public',
+            ],
+
+            'trips' => [
+                'driver' => 'local',
+                'root' => public_path('assets/images/trips'),
+                'url' => '/assets/images/trips',
                 'visibility' => 'public',
             ],
 

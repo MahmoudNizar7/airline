@@ -52,7 +52,7 @@
 
             if ($this->image != '') {
                 $this->image_name = md5($this->image . microtime() . '.' . $this->image->extension());
-                $this->image->storeAS('/', $this->image_name, 'uploads');
+                $this->image->storeAS('/', $this->image_name, 'clients');
             }
             $clients = Client::create($this->modelData());
             $clients->attachRole('client');
