@@ -10,7 +10,6 @@
 
     class CountryController extends Controller
     {
-
         public function index(Request $request)
         {
             $countries = Country::where(function ($q) use ($request) {
@@ -23,36 +22,15 @@
             return view('control/countries/index', compact('countries'));
         }
 
-
         public function create()
         {
             return view('control/countries/create');
         }
 
-
-        public function store(Request $request)
-        {
-            //
-        }
-
-
-        public function show(Country $country)
-        {
-            //
-        }
-
-
         public function edit(Country $country)
         {
             return view('control/countries/edit', compact('country'));
         }
-
-
-        public function update(Request $request, Country $country)
-        {
-            //
-        }
-
 
         public function destroy(Country $country)
         {

@@ -33,10 +33,10 @@
                                                         <div class="card bg-dark text-white h-100">
                                                             <div class="card-body bg-dark">
                                                                 <div class="rotate">
-                                                                    <i class="fas fa-mail-bulk fa-4x"></i>
+                                                                    <i class=" fas fa-user-check fa-4x"></i>
                                                                 </div>
-                                                                <h6 class="text-uppercase mt-1" style="">البريد الوارد</h6>
-                                                                <h1 class="display-4">25</h1>
+                                                                <h6 class="text-uppercase mt-1" style="">عميل</h6>
+                                                                <h1 class="display-4">22</h1>
                                                             </div>
                                                         </div>
                                                     </a>
@@ -50,9 +50,9 @@
                                                         <div class="card bg-dark text-white h-100">
                                                             <div class="card-body bg-dark">
                                                                 <div class="rotate">
-                                                                    <i class="fas fa-taxi fa-4x"></i>
+                                                                    <i class=" fas fa-plane-departure fa-4x"></i>
                                                                 </div>
-                                                                <h6 class="text-uppercase mt-1" style="">ميزة</h6>
+                                                                <h6 class="text-uppercase mt-1" style="">رحلة</h6>
                                                                 <h1 class="display-4">7</h1>
                                                             </div>
                                                         </div>
@@ -67,9 +67,9 @@
                                                         <div class="card bg-dark text-white h-100">
                                                             <div class="card-body bg-dark">
                                                                 <div class="rotate">
-                                                                    <i class="fas fa-images fa-4x"></i>
+                                                                    <i class=" fas fa-ticket-alt fa-4x"></i>
                                                                 </div>
-                                                                <h6 class="text-uppercase mt-1" style="">صورة للتطبيق</h6>
+                                                                <h6 class="text-uppercase mt-1" style="">حجز</h6>
                                                                 <h1 class="display-4">22</h1>
                                                             </div>
                                                         </div>
@@ -83,10 +83,10 @@
                                                         <div class="card bg-dark text-white h-100">
                                                             <div class="card-body bg-dark">
                                                                 <div class="rotate">
-                                                                    <i class="fas fa-images fa-4x"></i>
+                                                                    <i class="fas fa-mail-bulk fa-4x"></i>
                                                                 </div>
-                                                                <h6 class="text-uppercase mt-1" style="">صورة للتطبيق</h6>
-                                                                <h1 class="display-4">22</h1>
+                                                                <h6 class="text-uppercase mt-1" style="">بريد وارد</h6>
+                                                                <h1 class="display-4">25</h1>
                                                             </div>
                                                         </div>
                                                     </a>

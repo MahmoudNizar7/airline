@@ -83,6 +83,8 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
+                                        @else
+                                            <tr><td colspan="10">لايوجد بيانات</td></tr>
                                         @endif
                                         </tbody>
                                     </table>

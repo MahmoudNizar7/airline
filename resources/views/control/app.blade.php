@@ -213,7 +213,7 @@
                             <span class="m-menu__link-text">الرئيسية</span></a>
                     </li>
 
-                    @if(auth()->user()->hasRole('super_admin'))
+                    @if(auth()->user()->hasRole(['super_admin','user']))
                         <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
                             m-menu-submenu-toggle="hover">
 
@@ -342,7 +342,89 @@
 
                         </li>
 
+                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
+                            m-menu-submenu-toggle="hover">
 
+                            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+
+                                <i class="m-menu__link-icon fas fa-ticket-alt"></i>
+                                <span class="m-menu__link-text mr-0">الحجوزات</span>
+                                <i class="m-menu__ver-arrow la la-angle-right"></i>
+                            </a>
+
+
+                            <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
+                                <ul class="m-menu__subnav">
+
+                                    <li class="m-menu__item " aria-haspopup="true">
+                                        <a href="#" class="m-menu__link ">
+                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                                            <span class="m-menu__link-text">كل الحجوزات</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </li>
+
+                        @if(auth()->user()->hasPermission(['users_create','users_read','users_update','users_delete']))
+                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
+                            m-menu-submenu-toggle="hover">
+
+                            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+
+                                <i class="m-menu__link-icon fa fa-users"></i>
+                                <span class="m-menu__link-text mr-0">مستخدمو اللوحة</span>
+                                <i class="m-menu__ver-arrow la la-angle-right"></i>
+                            </a>
+
+                            <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
+                                <ul class="m-menu__subnav">
+
+                                    <li class="m-menu__item " aria-haspopup="true">
+                                        <a href="{{ route('users.index') }}" class="m-menu__link ">
+                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                                            <span class="m-menu__link-text">كل المستخدمين</span>
+                                        </a>
+                                    </li>
+                                    <li class="m-menu__item " aria-haspopup="true">
+                                        <a href="{{ route('users.create') }}" class="m-menu__link ">
+                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                                            <span class="m-menu__link-text">مستخدم جديد</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </li>
+                        @endif
+
+                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
+                            m-menu-submenu-toggle="hover">
+
+                            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+
+                                <i class="m-menu__link-icon fas fa-envelope-square"></i>
+                                <span class="m-menu__link-text mr-0">البريد الوارد</span>
+                                <i class="m-menu__ver-arrow la la-angle-right"></i>
+                            </a>
+
+                            <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
+                                <ul class="m-menu__subnav">
+
+                                    <li class="m-menu__item " aria-haspopup="true">
+                                        <a href="{{ route('inbox.index') }}" class="m-menu__link ">
+                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                                            <span class="m-menu__link-text">عرض الرسائل</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </li>
 
                     @endif
                 </ul>

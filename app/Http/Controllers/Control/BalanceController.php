@@ -22,28 +22,4 @@
             return view('control.balances.recharge');
         }
 
-        public function store(Request $request)
-        {
-            //
-        }
-
-        public function show(Balance $balance)
-        {
-            //
-        }
-
-        public function edit(Balance $balance)
-        {
-            //
-        }
-
-        public function update(Request $request, Balance $balance)
-        {
-            //
-        }
-
-        public function destroy(Balance $balance)
-        {
-            //
-        }
     }

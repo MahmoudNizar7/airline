@@ -45,6 +45,8 @@
                                                     <td>{{ $movement->about }}</td>
                                                 </tr>
                                             @endforeach
+                                        @else
+                                            <tr><td colspan="5">لايوجد بيانات</td></tr>
                                         @endif
                                         </tbody>
                                     </table>

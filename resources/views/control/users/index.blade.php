@@ -1,7 +1,7 @@
 @extends('control.app')
 
 @section('content')
-    @php($title = "لوحة التحكم | قائمة الدول")
+    @php($title = "لوحة التحكم | قائمة مستخدمو اللوحة")
     <div class="m-grid__item m-grid__item--fluid m-wrapper">
         <div class="m-content">
             <div class="row">
@@ -12,15 +12,14 @@
                             <div class="kt-portlet__head kt-portlet__head--lg">
                                 <div class="kt-portlet__head-label">
 
-                                    <h3 class="kt-portlet__head-title">
-                                        الدول
-                                        <a href="{{ route('countries.create') }}" class="btn btn-default "
-                                           style="color: black; margin-right: 770px">إضافة دولة</a>
+                                    <h3 class="kt-portlet__head-title" >مستخدمو اللوحة
+                                        <a href="{{ route('users.create') }}" class="btn btn-default "
+                                           style="color: black; margin-right: 600px">إضافة مستخدم</a>
                                     </h3>
                                 </div>
                             </div>
                             <hr>
-                            <form action="{{ route('countries.index') }}">
+                            <form action="{{ route('users.index') }}">
                                 <div class="form-group m-form__group row align-items-center">
                                     <div class="col-md-4">
                                         <input type="text" name="search" class="form-control m-input" value="{{ Request()->search }}"
@@ -38,31 +37,29 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>الاسم الدولة</th>
-                                            <th>مقدمة الدولة</th>
-                                            <th>الاجراءات</th>
+                                            <th>الإسم</th>
+                                            <th>الإجراءات</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if($countries->count() > 0)
-                                            @foreach($countries as $index => $country)
+                                        @if($users->count() > 0)
+                                            @foreach($users as $index => $user)
                                                 <tr>
                                                     <td>{{ $index+1 }}</td>
-                                                    <td>{{ $country['name_'. LaravelLocalization::getCurrentLocale()] }}</td>
-                                                    <td>{{ $country->code }}</td>
+                                                    <td>{{ $user->name }}</td>
 
                                                     <td>
                                                         <div class="d-inline-flex">
-                                                            <a href="{{ route('countries.edit',$country->id) }}"
+                                                            <a href="{{ route('users.edit' , $user->id) }}"
                                                                class="btn btn-info m-btn--custom d-flex align-items-center justify-content-center fs-10 p-0 w-65 h-30 mr-3">
                                                                 <i class="fa fa-edit pr-2 fs-10"></i><span>تعديل</span>
                                                             </a>
                                                             <a href="javascript:void (0)"
                                                                class="btn btn-danger m-btn--custom d-flex align-items-center justify-content-center fs-10 p-0 w-65 h-30"
-                                                               onclick="if (confirm('هل انت متأكد من حذف الدولة؟')){document.getElementById('delete-{{ $country->id }}').submit();}else { return false;}">
+                                                               onclick="if (confirm('هل انت منأكد من حذف المستخدم؟')){document.getElementById('delete-{{ $user->id }}').submit();}else { return false;}">
                                                                 <i class="fa fa-trash-alt pr-2 fs-10"></i>حذف</a>
-                                                            <form action="{{ route('countries.destroy',$country->id) }}"
-                                                                  method="post" id="delete-{{ $country->id }}"
+                                                            <form action="{{ route('users.destroy',$user->id) }}"
+                                                                  method="post" id="delete-{{ $user->id }}"
                                                                   style="display: none;">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -72,14 +69,14 @@
                                                 </tr>
                                             @endforeach
                                         @else
-                                            <tr><td colspan="4">لايوجد بيانات</td></tr>
+                                            <tr><td colspan="10">لايوجد بيانات</td></tr>
                                         @endif
                                         </tbody>
                                     </table>
                                     <div class="float-right">
-                                        {{--                                        {{ $countries->links('pagination::bootstrap-4') }}--}}
-                                        {{ $countries->appends(request()->query())->links('pagination::bootstrap-4') }}
-                                        {{--{{ $countries->links() }}--}}
+                                        {{--                                        {{ $trips->links('pagination::bootstrap-4') }}--}}
+                                        {{ $users->appends(request()->query())->links('pagination::bootstrap-4') }}
+                                        {{--{{ $trips->links() }}--}}
                                     </div>
                                 </div>
                             </div>

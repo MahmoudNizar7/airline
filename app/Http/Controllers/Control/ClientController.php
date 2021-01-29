@@ -12,7 +12,7 @@
 
         public function __construct()
         {
-            $this->middleware(['role:super_admin']);
+            $this->middleware(['role:super_admin|user']);
         }
 
         public function index(Request $request)
@@ -31,11 +31,6 @@
             return view('control/clients/create');
         }
 
-        public function store(Request $request)
-        {
-            //
-        }
-
         public function show(Client $client)
         {
             return view('control.clients.show', compact('client'));
@@ -44,11 +39,6 @@
         public function edit(Client $client)
         {
             return view('control.clients.edit', compact('client'));
-        }
-
-        public function update(Request $request, Client $client)
-        {
-            //
         }
 
         public function destroy(Client $client)
@@ -61,4 +51,5 @@
             Alert::success('تم حذف العميل');
             return redirect()->back();
         }
+
     }

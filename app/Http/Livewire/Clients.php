@@ -75,8 +75,13 @@
                 'company' => $this->company,
                 'address' => $this->address,
                 'phone' => $this->phone,
-                'password' => bcrypt($this->password),
             ];
+
+            if (!is_numeric($this->client_id)) {
+                $data['password'] = bcrypt($this->password);
+            } elseif (is_numeric($this->client_id) && $this->password != '') {
+                $data['password'] = bcrypt($this->password);
+            }
 
             if ($this->image != $this->image_name) {
                 $data['image'] = $this->image_name;
@@ -131,9 +136,11 @@
                 'address' => ['required', 'max:500'],
                 'phone' => ['required', Rule::unique('clients', 'phone')->ignore($this->client_id)],
             ];
-            if($this->client_id = ''){
+
+            if (!is_numeric($this->client_id)) {
                 $rules['password'] = ['required', 'min:8'];
             }
+
             return $rules;
         }
 

@@ -14,9 +14,19 @@
         'roles_structure' => [
             'super_admin' => [
                 'clients' => 'c,r,u,d',
+                'users' => 'c,r,u,d',
+                'trips' => 'c,r,u,d',
+                'countries' => 'c,r,u,d',
+                'balances' => 'c,r,u,d',
+            ],
+            'user' => [
+                'clients' => 'c,r,u,d',
+                'trips' => 'c,r,u,d',
+                'countries' => 'c,r,u,d',
+                'balances' => 'c,r,u,d',
             ],
             'client' => [
-                
+
             ],
         ],
 

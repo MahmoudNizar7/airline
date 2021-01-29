@@ -23,34 +23,14 @@
             return view('control/trips/index', compact('trips'));
         }
 
-
         public function create()
         {
             return view('control.trips.create');
         }
 
-
-        public function store(Request $request)
-        {
-            //
-        }
-
-
-        public function show(Trip $trip)
-        {
-            //
-        }
-
-
         public function edit(Trip $trip)
         {
-            return view('control/trips/edit',compact('trip'));
-        }
-
-
-        public function update(Request $request, Trip $trip)
-        {
-            //
+            return view('control/trips/edit', compact('trip'));
         }
 
         public function destroy(Trip $trip)
