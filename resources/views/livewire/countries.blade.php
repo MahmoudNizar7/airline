@@ -9,7 +9,7 @@
                             <div class="m-portlet__head-caption">
                                 <div class="m-portlet__head-title">
                                     <h3 class="m-portlet__head-text">
-                                         إضافة دولة
+                                        إضافة دولة
                                     </h3>
                                     <a href="{{ route('countries.index') }}" class="btn btn-default "
                                        style="color: black; margin-right: 450px">كل الدول</a>
@@ -20,7 +20,8 @@
                             <div class="form-group m-form__group row mb-25">
                                 <label for="name_ar" class="col-3 col-form-label">إسم الدولة بالعربي</label>
                                 <div class="col-9">
-                                    <input name="name_ar" wire:model="name_ar" value="" placeholder="مثلاً: المملكة العربية السعودية"
+                                    <input name="name_ar" wire:model="name_ar" value=""
+                                           placeholder="مثلاً: المملكة العربية السعودية"
                                            class="form-control @error('name_ar') is-invalid @enderror " type="text"
                                            id="name_ar" autocomplete="name_ar">
                                     @error('name_ar')
@@ -35,7 +36,8 @@
                             <div class="form-group m-form__group row mb-25">
                                 <label for="name_en" class="col-3 col-form-label">إسم الدولة بالإنجليزي</label>
                                 <div class="col-9">
-                                    <input name="name_en" wire:model="name_en" value="" placeholder="مثلاً: saudi arabia"
+                                    <input name="name_en" wire:model="name_en" value=""
+                                           placeholder="مثلاً: saudi arabia"
                                            class="form-control @error('name_en') is-invalid @enderror " type="text"
                                            id="name_en" autocomplete="name_en">
                                     @error('name_en')
@@ -69,7 +71,11 @@
                     <div class="m-portlet m-portlet--tab">
                         <div class="m-portlet__body">
                             <div class="m-portlet__head-title col-sm-12">
-                                <button type="submit" class="btn btn-success col-sm-12" wire:click="store">حفظ</button>
+                                @if($country != '')
+                                    <button type="submit" class="btn btn-success col-sm-12" wire:click="update">تعديل</button>
+                                @else
+                                    <button type="submit" class="btn btn-success col-sm-12" wire:click="store">حفظ</button>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -81,21 +87,25 @@
 
                                     @if($image)
                                         <div class="mt-1 flex rounded-md shadow-sm">
-                                            <img src="{{ $image->temporaryUrl() }} " width="200">
+                                            <img src="{{ $image === $image_name ? asset('assets/images/countries/' . $image) : $image->temporaryUrl() }}" width="200">
                                         </div>
                                     @endif
                                     <br>
                                     <br>
 
-                                    <input type="file" name="image" wire:model="image" id="file" class="@error('image') is-invalid @enderror image" accept="image/*">
+                                    <input type="file" name="image" wire:model="image" id="file"
+                                           class="@error('image') is-invalid @enderror image" accept="image/*">
                                     @error('image')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ __($message) }}</strong>
                                         </span>
                                     @enderror
 
-                                        <label id="label" for="file" class="btn btn-success col-sm-12"><i class="material-icons"></i>اختر الصورة </label>
-
+                                        @if($country != '')
+                                            <label id="label" for="file" class="btn btn-success col-sm-12"><i class="material-icons"></i>تعديل الصورة </label>
+                                        @else
+                                            <label id="label" for="file" class="btn btn-success col-sm-12"><i class="material-icons"></i>اختر الصورة </label>
+                                        @endif
                                 </div>
                             </div>
                         </div>

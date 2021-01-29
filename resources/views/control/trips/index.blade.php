@@ -23,7 +23,7 @@
                             <form action="{{ route('trips.index') }}">
                                 <div class="form-group m-form__group row align-items-center">
                                     <div class="col-md-4">
-                                        <input type="text" name="search" class="form-control m-input"
+                                        <input type="text" name="search" class="form-control m-input" value="{{ Request()->search }}"
                                                placeholder="بحث..." id="generalSearch">
                                     </div>
                                     <div class="col-md-4">

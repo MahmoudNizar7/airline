@@ -140,9 +140,5 @@
             ];
         }
 
-        public function destroy()
-        {
-
-        }
 
     }

@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Models\Control;
+    namespace App\Models\Control;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
-{
-    use HasFactory;
-}
+    class Country extends Model
+    {
+        use HasFactory;
+
+        protected $guarded = [];
+    }
