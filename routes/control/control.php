@@ -18,6 +18,6 @@
         Route::resource('trips', TripController::class)->except(['store', 'show', 'update']);
         Route::resource('countries', CountryController::class)->except(['store', 'show', 'update']);
         Route::resource('users', UserController::class)->except(['store', 'update', 'show']);
-        Route::resource('inbox', MailController::class);
+        Route::resource('inbox', MailController::class, ['parameters' => ['destroy' => '']]);
 
     });

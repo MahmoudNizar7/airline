@@ -5,6 +5,7 @@
     use App\Http\Controllers\Controller;
     use App\Models\Control\Mail;
     use Illuminate\Http\Request;
+    use RealRashid\SweetAlert\Facades\Alert;
 
     class MailController extends Controller
     {
@@ -40,8 +41,15 @@
             //
         }
 
-        public function destroy(Mail $mail)
+        public function destroy(Request $request)
         {
-            //
+            if (empty($request->message_id)) {
+                return redirect()->back();
+            } else {
+                Mail::whereIn('id', $request->message_id)->delete();
+                Alert::success('تم حذف الرسالة بنجاح');
+                return redirect()->back();
+            }
         }
+
     }

@@ -194,34 +194,43 @@
                     <div class="col-lg-12">
                         <div class="inbox-body">
                             <div class="inbox-content">
-                                <table class="table ">
+                                <form action="{{ route('inbox.destroy',"delete") }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <table class="table ">
 
-                                    <tr>
-                                        <th colspan="7">
-                                            <label class="m-checkbox">
-                                                <input type="checkbox" id="checkAll"><span
-                                                    style="top: 10px;right: 5px"></span>
-                                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>
-                                                    حذف
-                                                </button>
-                                            </label>
-                                        </th>
-                                    </tr>
+                                        <tr>
+                                            <th colspan="7">
+                                                <label class="m-checkbox">
+                                                    <input type="checkbox" class="radio" id="checkAll"><span
+                                                        style="top: 10px;right: 5px"></span>
+                                                    <button type="submit" id="delete" class="btn btn-danger" disabled><i
+                                                            class="fa fa-trash"></i>
+                                                        حذف
+                                                    </button>
+                                                </label>
+                                            </th>
+                                        </tr>
 
-                                    <tbody>
-                                    @if($messages->count() > 0)
-                                        @foreach($messages as $message)
-                                            <tr class="unread" data-messageid="1">
-                                                <td class="inbox-small-cells"><label class="m-checkbox"><input type="checkbox"><span></span></label></td>
-                                                <td class="view-message hidden-xs">{{ $message->name }}</td>
-                                                <td class="view-message "><a href="{{ route('inbox.show', $message->id) }}">{{ $message->title }}</a></td>
-                                                <td class="view-message inbox-small-cells"></td>
-                                                <td class="view-message text-right">{{ $message->created_at }}</td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
-                                    </tbody>
-                                </table>
+                                        <tbody>
+                                        @if($messages->count() > 0)
+                                            @foreach($messages as $message)
+                                                <tr class="unread" data-messageid="1">
+                                                    <td class="inbox-small-cells"><label class="m-checkbox"><input
+                                                                type="checkbox" class="mail_id" name="message_id[]"
+                                                                value="{{ $message->id }}"><span></span></label></td>
+                                                    <td class="view-message hidden-xs">{{ $message->name }}</td>
+                                                    <td class="view-message "><a
+                                                            href="{{ route('inbox.show', $message->id) }}">{{ $message->title }}</a>
+                                                    </td>
+                                                    <td class="view-message inbox-small-cells"></td>
+                                                    <td class="view-message text-right">{{ $message->created_at }}</td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                        </tbody>
+                                    </table>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -247,7 +256,31 @@
 
         $('.fa-star').click(function () {
             $(this).toggleClass('inbox-started')
+        });
+
+        $('.mail_id').change(function () {
+            go();
+        });
+
+        $('.radio').change(function () {
+            go();
+        });
+
+        function go() {
+            if (jQuery('input[class=mail_id]:checked').length) {
+                $('#delete').removeAttr("disabled");
+            } else {
+                $('#delete').attr("disabled", true);
+            }
+        }
+
+        $('input').on('click', function () {
+            if (jQuery('input[class=mail_id]:checked').length == 0) {
+                $(".radio").prop('checked', false);
+            }
         })
+
+
     </script>
 
 @stop

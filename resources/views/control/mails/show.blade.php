@@ -156,8 +156,7 @@
         <div class="m-content">
             <div class="inbox">
                 <div class="row">
-
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <div class="inbox-body">
                             <div class="inbox-content">
                                 <div class="inbox-header inbox-view-header">
@@ -167,7 +166,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-7">
                                             <span class="bold">{{ $mail->name }}</span>
-                                            <span>&lt;{{ $mail->email }}&gt;</span>
+                                            <span>[ {{ $mail->email }} ]</span>
                                             <span>{{ $mail->created_at }}</span>
                                         </div>
                                         <div class="col-md-5 inbox-info-btn">
@@ -180,7 +179,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="inbox-view">{{ $mail->body }}</div>
+                                <div class="inbox-view">{!! $mail->body !!}</div>
                             </div>
                         </div>
                     </div>
