@@ -52,4 +52,9 @@
             }
         }
 
+        public function reply(Request $request)
+        {
+            return $request;
+        }
+
     }

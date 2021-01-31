@@ -424,6 +424,16 @@
                                 </ul>
                             </div>
 
+                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="{{ route('trans.index') }}" class="m-menu__link m-menu__toggle">
+                                <i class="m-menu__link-icon fa fa-language"></i>
+                                <span class="m-menu__link-text">نصوص الموقع</span></a>
+                        </li>
+
+                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="{{ route('settings.index') }}" class="m-menu__link m-menu__toggle">
+                                <i class="m-menu__link-icon fa flaticon-settings"></i>
+                                <span class="m-menu__link-text">إعدادات الموقع</span></a>
+                        </li>
+
                         </li>
 
                     @endif
