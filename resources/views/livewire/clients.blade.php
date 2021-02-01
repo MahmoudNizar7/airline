@@ -12,7 +12,7 @@
                                          إضافة عميل
                                     </h3>
                                     <a href="{{ route('clients.index') }}" class="btn btn-default "
-                                       style="color: black; margin-right: 450px">كل العملاء</a>
+                                       style="color: black; margin-right: 400px">كل العملاء</a>
                                 </div>
                             </div>
                         </div>

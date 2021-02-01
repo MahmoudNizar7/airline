@@ -116,7 +116,6 @@
 														<img src="{{ asset('assets/images/user.png') }}"
                                                              class="m--img-rounded m--marginless" alt=""/>
 													</span>
-                                        <span class="m-topbar__username m--hide">Nick</span>
                                     </a>
                                     <div class="m-dropdown__wrapper">
                                         <span
@@ -130,20 +129,15 @@
                                                              class="m--img-rounded m--marginless" alt=""/>
                                                     </div>
                                                     <div class="m-card-user__details">
-                                                        <div
-                                                            class="m-card-profile__name">name
-                                                        </div>
+                                                        <div class="m-card-profile__name">{{ auth()->user()->name }}</div>
                                                         <span
-                                                            class="m-card-user__name m--font-weight-500">email</span>
+                                                            class="m-card-user__name m--font-weight-500">{{ auth()->user()->email }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="m-dropdown__body">
                                                 <div class="m-dropdown__content">
                                                     <ul class="m-nav m-nav--skin-light">
-                                                        <li class="m-nav__section m--hide">
-                                                            <span class="m-nav__section-text">Section</span>
-                                                        </li>
                                                         <li class="m-nav__item">
                                                             <a href="#"
                                                                class="m-nav__link">
@@ -475,6 +469,7 @@
 
 <script src="{{ asset('assets/js/select2.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/jquery.tagsinput.js') }}"></script>
+
 @include('sweetalert::alert')
 
 @livewireScripts

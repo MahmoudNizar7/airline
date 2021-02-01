@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Models\Control;
+    namespace App\Models\Control;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-class Setting extends Model
-{
-    use HasFactory;
-}
+    class Setting extends Model
+    {
+        use HasFactory;
+
+        public $timestamps = false;
+        protected $guarded = [];
+    }

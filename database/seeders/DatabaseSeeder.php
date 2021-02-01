@@ -16,5 +16,6 @@
             $this->call(LaratrustSeeder::class);
             $this->call(UsersTableSeeder::class);
             $this->call(TransTableSeeder::class);
+            $this->call(SettingTableSeeder::class);
         }
     }

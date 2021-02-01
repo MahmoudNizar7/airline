@@ -63,6 +63,13 @@
                 'visibility' => 'public',
             ],
 
+            'settings' => [
+                'driver' => 'local',
+                'root' => public_path('assets/images/'),
+                'url' => '/assets/images/',
+                'visibility' => 'public',
+            ],
+
             's3' => [
                 'driver' => 's3',
                 'key' => env('AWS_ACCESS_KEY_ID'),
