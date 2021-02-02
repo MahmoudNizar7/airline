@@ -434,14 +434,13 @@
         </div>
     </div>
 
-    <div class="main-footer" id="section-footer">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg text-center text-lg-right">
-                    <p class="m-card-user__name m--font-weight-500" style="margin-top: -50px; margin-left: -75px">2021 ©
-                        شركة المصطفى للسياحة والسفر</p>
-                </div>
-            </div>
+    @php
+        $rights = \App\Models\Control\Setting::where('key','rights')->first();
+    @endphp
+    <!-- begin:: Footer -->
+    <div class="m-footer m-grid__item m-grid m-grid--desktop m-grid--ver-desktop">
+        <div class="m-footer__copyright">
+            <a href="#" target="_blank" class="m-link" style="margin-top: 15px">{{ $rights->value }}</a>
         </div>
     </div>
 

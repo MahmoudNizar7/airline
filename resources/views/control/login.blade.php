@@ -8,9 +8,8 @@
     <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
     <title>لوحة التحكم | شركة المصطفى للسياحة و السفر</title>
-    <link href="{{ asset('assets/css/vendors.bundle.rtl.css') }}" rel="stylesheet" type="text/css"/>
 
-    <!--RTL version:<link href="assets/vendors/base/vendors.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -189,7 +188,7 @@
             -ms-transform: translate3d(0px, -1px, 0px);
             transform: translate3d(0px, -1px, 0px);
         }
-       
+
     </style>
 </head>
 <body>
@@ -227,12 +226,6 @@
         </footer>
     </form>
 </div>
-<script>
-    $('.save').on('click',function (){
 
-       // $('.save').css('display', 'none');
-
-    });
-</script>
 </body>
 </html>

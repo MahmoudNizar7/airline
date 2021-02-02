@@ -26,19 +26,19 @@
 
                                 <ul class="nav nav-tabs nav-fill tab-base" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active show" data-toggle="tab" id="button_general"
+                                        <a href="#" class="nav-link active show" data-toggle="tab" id="button_general"
                                            role="tab">
                                             <i class="flaticon-settings-1"></i> إعدادات الموقع
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" id="button_social" role="tab"
+                                        <a href="#" class="nav-link" data-toggle="tab" id="button_social" role="tab"
                                            aria-selected="false">
                                             <i class="fa fa-poll-h"></i> إعدادات مواقع التواصل الإجتماعي
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" id="button_connect" role="tab"
+                                        <a href="#" class="nav-link" data-toggle="tab" id="button_connect" role="tab"
                                            aria-selected="false">
                                             <i class="flaticon-users-1"></i> بيانات الإتصال
                                         </a>
