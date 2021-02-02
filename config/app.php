@@ -175,6 +175,7 @@
             App\Providers\EventServiceProvider::class,
             App\Providers\RouteServiceProvider::class,
             RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+            Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
         ],
@@ -230,7 +231,7 @@
             'View' => Illuminate\Support\Facades\View::class,
             'Image' => Intervention\Image\Facades\Image::class,
             'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-
+            'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
         ],
 

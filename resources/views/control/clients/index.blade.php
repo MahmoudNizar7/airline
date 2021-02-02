@@ -14,8 +14,11 @@
 
                                     <h3 class="kt-portlet__head-title">
                                         العملاء
-                                        <a href="{{ route('clients.create') }}" class="btn btn-default "
-                                           style="color: black; margin-right: 770px">إضافة عميل</a>
+                                        <a href="{{ route('clients.create') }}" class="btn btn-default"
+                                           style="color: black; margin-right: 680px">إضافة عميل</a>
+
+                                        <a href="{{ route('clients.export') }}" class="btn btn-default"
+                                           style="color: black">Excel</a>
                                     </h3>
                                 </div>
                             </div>
@@ -23,7 +26,8 @@
                             <form action="{{ route('clients.index') }}">
                                 <div class="form-group m-form__group row align-items-center">
                                     <div class="col-md-4">
-                                        <input type="text" name="search" class="form-control m-input" value="{{ Request()->search }}"
+                                        <input type="text" name="search" class="form-control m-input"
+                                               value="{{ Request()->search }}"
                                                placeholder="بحث..." id="generalSearch">
                                     </div>
                                     <div class="col-md-4">
@@ -81,7 +85,9 @@
                                                 </tr>
                                             @endforeach
                                         @else
-                                            <tr><td colspan="8">لايوجد بيانات</td></tr>
+                                            <tr>
+                                                <td colspan="8">لايوجد بيانات</td>
+                                            </tr>
                                         @endif
                                         </tbody>
                                     </table>

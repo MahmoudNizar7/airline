@@ -37,6 +37,12 @@
     <link rel="shortcut icon" href="{{ asset('assets/img/logo/favicon.ico') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
+    <style>
+        body.m-aside-left--skin-dark .m-header .m-header-head{
+            -webkit-box-shadow:none;
+            box-shadow:none;
+        }
+    </style>
     @livewireStyles
     @yield('style')
 </head>
@@ -50,12 +56,16 @@
         <div class="m-container m-container--fluid m-container--full-height">
             <div class="m-stack m-stack--ver m-stack--desktop">
 
-                <!-- BEGIN: Brand -->
-                <div class="m-stack__item m-brand  m-brand--skin-dark ">
-                    <div class="m-stack m-stack--ver m-stack--general">
-                        <div class="m-stack__item m-stack__item--middle m-brand__logo">
+
+                @php
+                    $image = \App\Models\Control\Setting::where('key', 'image')->first();
+                @endphp
+
+                <div class="m-stack__item m-brand  m-brand--skin-dark " style="background-color: white">
+                    <div class="m-stack m-stack--ver m-stack--general" >
+                        <div class="m-stack__item m-stack__item--middle m-brand__logo" >
                             <a href="#" target="_blank" i class="m-brand__logo-wrapper">
-                                <img alt="" src="{{ asset('assets/images/logo.png') }}"/>
+                                <img alt="" style="width: 125px;height: 70px; " src="{{ asset('assets/images/'.$image->value) }}"/>
                             </a>
                         </div>
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -129,7 +139,8 @@
                                                              class="m--img-rounded m--marginless" alt=""/>
                                                     </div>
                                                     <div class="m-card-user__details">
-                                                        <div class="m-card-profile__name">{{ auth()->user()->name }}</div>
+                                                        <div
+                                                            class="m-card-profile__name">{{ auth()->user()->name }}</div>
                                                         <span
                                                             class="m-card-user__name m--font-weight-500">{{ auth()->user()->email }}</span>
                                                     </div>
@@ -139,7 +150,7 @@
                                                 <div class="m-dropdown__content">
                                                     <ul class="m-nav m-nav--skin-light">
                                                         <li class="m-nav__item">
-                                                            <a href="#"
+                                                            <a href="{{ route('profile.show') }}"
                                                                class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-profile-1"></i>
                                                                 <span class="m-nav__link-title">
@@ -150,26 +161,15 @@
                                                                 </span>
                                                             </a>
                                                         </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="#"
-                                                               class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-profile-1"></i>
-                                                                <span class="m-nav__link-title">
-                                                                    <span class="m-nav__link-wrap">
-                                                                        <div
-                                                                            class="kt-notification__item-title kt-font-bold">اعدادات الحساب وكلمة المرور</div>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                        </li>
+
                                                         <li class="m-nav__separator m-nav__separator--fit">
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a href="#"
+                                                            <a href="{{ route('logout') }}"
                                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                                                class="btn m-btn--pill    btn-secondary m-btn  m-btn--label-brand m-btn--bolder">تسجيل
                                                                 الخروج</a>
-                                                            <form id="logout-form" action="#"
+                                                            <form id="logout-form" action="{{ route('logout') }}"
                                                                   method="POST" class="d-none">
                                                                 @csrf
                                                             </form>
@@ -363,67 +363,58 @@
                         </li>
 
                         @if(auth()->user()->hasPermission(['users_create','users_read','users_update','users_delete']))
-                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
-                            m-menu-submenu-toggle="hover">
+                            <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
+                                m-menu-submenu-toggle="hover">
 
-                            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                                <a href="javascript:;" class="m-menu__link m-menu__toggle">
 
-                                <i class="m-menu__link-icon fa fa-users"></i>
-                                <span class="m-menu__link-text mr-0">مستخدمو اللوحة</span>
-                                <i class="m-menu__ver-arrow la la-angle-right"></i>
-                            </a>
+                                    <i class="m-menu__link-icon fa fa-users"></i>
+                                    <span class="m-menu__link-text mr-0">مستخدمو اللوحة</span>
+                                    <i class="m-menu__ver-arrow la la-angle-right"></i>
+                                </a>
 
-                            <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
-                                <ul class="m-menu__subnav">
+                                <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
+                                    <ul class="m-menu__subnav">
 
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="{{ route('users.index') }}" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
-                                            <span class="m-menu__link-text">كل المستخدمين</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="{{ route('users.create') }}" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
-                                            <span class="m-menu__link-text">مستخدم جديد</span>
-                                        </a>
-                                    </li>
+                                        <li class="m-menu__item " aria-haspopup="true">
+                                            <a href="{{ route('users.index') }}" class="m-menu__link ">
+                                                <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                                                <span class="m-menu__link-text">كل المستخدمين</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-menu__item " aria-haspopup="true">
+                                            <a href="{{ route('users.create') }}" class="m-menu__link ">
+                                                <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                                                <span class="m-menu__link-text">مستخدم جديد</span>
+                                            </a>
+                                        </li>
 
-                                </ul>
-                            </div>
+                                    </ul>
+                                </div>
 
-                        </li>
+                            </li>
                         @endif
 
                         <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
                             m-menu-submenu-toggle="hover">
 
-                            <a href="javascript:;" class="m-menu__link m-menu__toggle">
-
+                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
+                            m-menu-submenu-toggle="hover"><a href="{{ route('inbox.index') }}"
+                                                             class="m-menu__link m-menu__toggle">
                                 <i class="m-menu__link-icon fas fa-envelope-square"></i>
-                                <span class="m-menu__link-text mr-0">البريد الوارد</span>
-                                <i class="m-menu__ver-arrow la la-angle-right"></i>
-                            </a>
+                                <span class="m-menu__link-text">البريد الوارد</span></a>
+                        </li>
 
-                            <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
-                                <ul class="m-menu__subnav">
-
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="{{ route('inbox.index') }}" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
-                                            <span class="m-menu__link-text">عرض الرسائل</span>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-
-                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="{{ route('trans.index') }}" class="m-menu__link m-menu__toggle">
+                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
+                            m-menu-submenu-toggle="hover"><a href="{{ route('trans.index') }}"
+                                                             class="m-menu__link m-menu__toggle">
                                 <i class="m-menu__link-icon fa fa-language"></i>
                                 <span class="m-menu__link-text">نصوص الموقع</span></a>
                         </li>
 
-                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="{{ route('settings.index') }}" class="m-menu__link m-menu__toggle">
+                        <li class="m-menu__item  m-menu__item--submenu pl-3" aria-haspopup="true"
+                            m-menu-submenu-toggle="hover"><a href="{{ route('settings.index') }}"
+                                                             class="m-menu__link m-menu__toggle">
                                 <i class="m-menu__link-icon fa flaticon-settings"></i>
                                 <span class="m-menu__link-text">إعدادات الموقع</span></a>
                         </li>

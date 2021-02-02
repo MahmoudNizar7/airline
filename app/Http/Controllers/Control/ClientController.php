@@ -2,9 +2,11 @@
 
     namespace App\Http\Controllers\Control;
 
+    use App\Exports\ClientExport;
     use App\Http\Controllers\Controller;
     use App\Models\Control\Client;
     use Illuminate\Http\Request;
+    use Maatwebsite\Excel\Facades\Excel;
     use RealRashid\SweetAlert\Facades\Alert;
 
     class ClientController extends Controller
@@ -50,6 +52,11 @@
 
             Alert::success('تم حذف العميل');
             return redirect()->back();
+        }
+
+        public function export()
+        {
+            return Excel::download(new ClientExport(), 'clients.xlsx');
         }
 
     }

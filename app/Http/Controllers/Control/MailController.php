@@ -3,6 +3,7 @@
     namespace App\Http\Controllers\Control;
 
     use App\Http\Controllers\Controller;
+    use App\Mail\ReplyClient;
     use App\Models\Control\Mail;
     use Illuminate\Http\Request;
     use RealRashid\SweetAlert\Facades\Alert;
@@ -15,30 +16,10 @@
             return view('control.mails.index', compact('messages'));
         }
 
-        public function create()
-        {
-            //
-        }
-
-        public function store(Request $request)
-        {
-            //
-        }
-
         public function show($id)
         {
             $mail = Mail::find($id);
             return view('control.mails.show', compact('mail'));
-        }
-
-        public function edit(Mail $mail)
-        {
-            //
-        }
-
-        public function update(Request $request, Mail $mail)
-        {
-            //
         }
 
         public function destroy(Request $request)
@@ -54,7 +35,10 @@
 
         public function reply(Request $request)
         {
-            return $request;
+            $details = ['title' => $request->title, 'body' => $request->body];
+            \Illuminate\Support\Facades\Mail::to($request->to)->send(new ReplyClient($details));
+            Alert::success('تم الإرسال بنجاح');
+            return redirect()->route('inbox.index');
         }
 
     }
