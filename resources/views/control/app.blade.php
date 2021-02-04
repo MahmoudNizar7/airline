@@ -440,7 +440,7 @@
     <!-- begin:: Footer -->
     <div class="m-footer m-grid__item m-grid m-grid--desktop m-grid--ver-desktop">
         <div class="m-footer__copyright">
-            <a href="#" target="_blank" class="m-link" style="margin-top: 15px">{{ $rights->value }}</a>
+            <a href="#" target="" class="m-link" style="margin-top: 15px">{{ $rights->value }}</a>
         </div>
     </div>
 

@@ -272,13 +272,15 @@
             } else {
                 $('#delete').attr("disabled", true);
             }
-        }
 
-        $('input').on('click', function () {
-            if (jQuery('input[class=mail_id]:checked').length == 0) {
+            if (jQuery('input[class=mail_id]:checked' === {{ $messages->count() }})) {
+                $(".radio").prop('checked', true);
+            }
+
+            if (jQuery('input[class=mail_id]:checked').length < {{ $messages->count() }}) {
                 $(".radio").prop('checked', false);
             }
-        })
+        }
 
 
     </script>

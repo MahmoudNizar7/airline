@@ -63,10 +63,13 @@
                             <div class="col-sm-12">
                                 <div class="m-portlet__head-title col-sm-12">
 
+                                    @if($client->image != '')
                                         <div class="mt-1 flex rounded-md shadow-sm">
                                             <img src="{{ asset('assets/images/clients/' . $client->image) }}" alt="{{ $client->name }}" width="200">
                                         </div>
-
+                                    @else
+                                        <p>لا يوجد</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -61,9 +61,12 @@
                                                     <td>{{ $client->phone }}</td>
                                                     <td>{{ $client->company }}</td>
                                                     <td>{{ $client->address }}</td>
+                                                    @if($client->image != '')
                                                     <td><img src="{{ asset('assets/images/clients/'.$client->image) }}"
                                                              width="80px" alt="{{ $client->name }}"></td>
-
+                                                    @else
+                                                        <td><p>لا يوجد</p></td>
+                                                    @endif
                                                     <td>
                                                         <div class="d-inline-flex">
                                                             <a href="{{ route('clients.edit',$client->id) }}"
