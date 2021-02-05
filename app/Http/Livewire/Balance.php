@@ -26,7 +26,6 @@
             return Client::orderByDesc('id', 'desc')->get();
         }
 
-
         public function store()
         {
             $this->validate();
@@ -84,7 +83,6 @@
         {
             $this->balance = null;
         }
-
 
         public function rules()
         {

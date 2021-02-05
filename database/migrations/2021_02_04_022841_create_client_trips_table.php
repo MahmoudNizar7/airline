@@ -21,6 +21,7 @@
                 $table->string('nationality');
                 $table->string('passport_no');
                 $table->date('passport_expiration_date');
+                $table->string('type');
                 $table->foreignId('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
                 $table->timestamps();
             });

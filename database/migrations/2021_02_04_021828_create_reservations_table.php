@@ -16,13 +16,13 @@
             Schema::create('reservations', function (Blueprint $table) {
                 $table->id();
                 $table->string('PNR');
-                $table->binary('status');
+                $table->tinyInteger('status');
                 $table->integer('adult');
                 $table->integer('children');
                 $table->integer('baby');
                 $table->double('cost');
                 $table->integer('trip_id');
-                $table->integer('reservation_id');
+                $table->integer('client_id');
                 $table->timestamps();
             });
         }

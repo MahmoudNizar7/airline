@@ -3,6 +3,7 @@
     namespace App\Http\Controllers\Front;
 
     use App\Http\Controllers\Controller;
+    use App\Models\Control\Trip;
     use App\Models\Front\Reservation;
     use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@
     {
         public function index()
         {
-            //
+            $trips = Trip::all();
+            return view('front.trips', compact('trips'));
         }
 
         public function create()

@@ -57,4 +57,11 @@
         Route::resource('client_trips', ClientTripController::class);
     });
 
-    Route::get('test_trip', [ClientTripController::class, 'create']);
+
+    //    Route::post('test_trip', [ClientTripController::class, 'create'])->name('create');
+    //    Route::get('reservation', [ReservationController::class, 'index']);
+    //    Route::get('first_form/{id?}', function ($id) {
+    //        $trip = Trip::find($id);
+    //        return view('front.first_form', compact('trip'));
+    //    })->name('first_form');
+
