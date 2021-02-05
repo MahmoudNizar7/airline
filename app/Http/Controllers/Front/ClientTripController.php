@@ -32,7 +32,7 @@
             if ($seats <= $trip->seats) {
 
                 $cost = ($trip->price * $adults) + ($trip->price * $children) + ($trip->baby_price * $baby);
-                $client = Client::find(auth()->id());
+                $client = Client::with(['balance'])->find(auth()->id());
 
                 if ($cost < $client->balance->balance) {
                     return view('front.reservations', compact('adults', 'children', 'baby', 'trip'));
@@ -57,13 +57,13 @@
 
             $reservation = Reservation::create([
                 'PNR' => Keygen::token(6)->generate(),
-                'status' => 1,
-                'adult' => $request->adults,
-                'children' => $request->children == '' ? 0 : $request->children,
-                'baby' => $request->baby,
+                'confirmation' => $request->confirmation,
+                'adult' => $adults,
+                'children' => $children,
+                'baby' => $baby,
                 'cost' => $cost,
                 'trip_id' => $request->trip_id,
-                'client_id' => auth()->user()->id,
+                'client_id' => auth()->id(),
             ]);
 
             $number = $adults + $children + $baby - 1;
@@ -80,13 +80,9 @@
                 ]);
             }
 
-            $client = Client::find(auth()->id());
-            $client->update([
-                'balance' => $client->balance - $cost
-            ]);
-
             $client = Client::with(['balance'])->find(auth()->id());
             $final_balance = $client->balance->balance - $cost;
+
             $client->balance->update([
                 'balance' => $final_balance
             ]);
@@ -94,7 +90,7 @@
             Movement::create([
                 'client_id' => auth()->id(),
                 'balance_id' => $client->balance->id,
-                'value' => $final_balance + $cost,
+                'value' => '-' . $cost,
                 'remainder' => $final_balance,
                 'about' => $reservation->PNR
             ]);
