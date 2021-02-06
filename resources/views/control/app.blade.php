@@ -38,10 +38,21 @@
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
     <style>
-        body.m-aside-left--skin-dark .m-header .m-header-head{
-            -webkit-box-shadow:none;
-            box-shadow:none;
+        body.m-aside-left--skin-dark .m-header .m-header-head {
+            -webkit-box-shadow: none;
+            box-shadow: none;
         }
+
+        .footer {
+            margin-top: -60px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+
     </style>
     @livewireStyles
     @yield('style')
@@ -62,10 +73,11 @@
                 @endphp
 
                 <div class="m-stack__item m-brand  m-brand--skin-dark " style="background-color: white">
-                    <div class="m-stack m-stack--ver m-stack--general" >
-                        <div class="m-stack__item m-stack__item--middle m-brand__logo" >
+                    <div class="m-stack m-stack--ver m-stack--general">
+                        <div class="m-stack__item m-stack__item--middle m-brand__logo">
                             <a href="#" target="_blank" i class="m-brand__logo-wrapper">
-                                <img alt="" style="width: 125px;height: 70px; " src="{{ asset('assets/images/'.$image->value) }}"/>
+                                <img alt="" style="width: 125px;height: 70px; "
+                                     src="{{ asset('assets/images/'.$image->value) }}"/>
                             </a>
                         </div>
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -434,16 +446,20 @@
         </div>
     </div>
 
-    @php
-        $rights = \App\Models\Control\Setting::where('key','rights')->first();
-    @endphp
-    <!-- begin:: Footer -->
-    <div class="m-footer m-grid__item m-grid m-grid--desktop m-grid--ver-desktop">
-        <div class="m-footer__copyright">
-            <a href="#" target="" class="m-link" style="margin-top: 15px">{{ $rights->value }}</a>
+</div>
+
+@php
+    $rights = \App\Models\Control\Setting::where('key','rights')->first();
+@endphp
+
+<div style="background-color: white; height: 50px;padding: 10px;" class="footer footer" id="section-footer">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg text-center text-lg-left">
+                <p class="copy" style="margin-top: 5px;text-align: left">{{ $rights->value }}</p>
+            </div>
         </div>
     </div>
-
 </div>
 
 <div id="m_scroll_top" class="m-scroll-top">
