@@ -22,7 +22,7 @@
             $clients = Client::all();
             $trips = Trip::all();
             $mails = Mail::all();
-            return view('Control/index', compact('image', 'clients', 'trips', 'mails'));
+            return view('Control.index', compact('image', 'clients', 'trips', 'mails'));
         })->name('admin');
 
         Route::macro('resourceAndActive', function ($url, $controller) {
