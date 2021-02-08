@@ -2,16 +2,21 @@
 
     namespace App\Models\Control;
 
+
     use Illuminate\Database\Eloquent\Factories\HasFactory;
-    use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Foundation\Auth\User as Authenticatable;
     use Laratrust\Traits\LaratrustUserTrait;
 
-    class Client extends Model
+    class Client extends Authenticatable
     {
         use LaratrustUserTrait, HasFactory;
 
-        protected $guarded = [];
-        protected $hidden = ['password'];
+
+        protected $table = 'clients';
+
+        protected $fillable = ['name', 'email', 'company', 'address', 'phone', 'password', 'image'];
+
+        protected $hidden = ['password', 'remember_token'];
 
         public function balance()
         {

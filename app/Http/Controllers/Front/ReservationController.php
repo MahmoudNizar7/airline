@@ -12,12 +12,12 @@
         public function index()
         {
             $trips = Trip::all();
-            return view('front.trips', compact('trips'));
+            return view('front.home', ['trips' => $trips]);
         }
 
         public function create()
         {
-            //
+           //
         }
 
         public function store(Request $request)

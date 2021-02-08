@@ -7,8 +7,6 @@
     use App\Http\Controllers\Control\TranController;
     use App\Http\Controllers\Control\TripController;
     use App\Http\Controllers\Control\UserController;
-    use App\Http\Controllers\Front\ClientTripController;
-    use App\Http\Controllers\Front\ReservationController;
     use App\Models\Control\Client;
     use App\Models\Control\Mail;
     use App\Models\Control\Setting;
@@ -52,16 +50,5 @@
 
         Route::resourceAndActive('inbox', 'MailController');
 
-
-        Route::resource('reservations', ReservationController::class);
-        Route::resource('client_trips', ClientTripController::class);
     });
-
-
-    //    Route::post('test_trip', [ClientTripController::class, 'create'])->name('create');
-    //    Route::get('reservation', [ReservationController::class, 'index']);
-    //    Route::get('first_form/{id?}', function ($id) {
-    //        $trip = Trip::find($id);
-    //        return view('front.first_form', compact('trip'));
-    //    })->name('first_form');
 

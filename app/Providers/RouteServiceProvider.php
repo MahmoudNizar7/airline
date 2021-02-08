@@ -49,6 +49,9 @@
 
                 Route::middleware('web')
                     ->group(base_path('routes/control/control.php'));
+
+                Route::middleware('web')
+                    ->group(base_path('routes/front/front.php'));
             });
         }
 

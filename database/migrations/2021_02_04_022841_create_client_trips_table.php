@@ -24,6 +24,7 @@
                 $table->string('type');
                 $table->foreignId('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
                 $table->timestamps();
+                $table->rememberToken();
             });
         }
 
