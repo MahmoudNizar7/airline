@@ -18,7 +18,7 @@
                                 <form action="{{ route('register') }}" method="POST">
                                 @csrf
                                     <div class="form-group">
-                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="الاسم ">
+                                        <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="الاسم ">
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="company" class="form-control @error('company') is-invalid @enderror" placeholder="اسم الشركة">
+                                        <input type="text" name="company" value="{{ old('company') }}" class="form-control @error('company') is-invalid @enderror" placeholder="اسم الشركة">
                                         @error('company')
                                             <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" placeholder="العنوان">
+                                        <input type="text" name="address" value="{{ old('address') }}" class="form-control @error('address') is-invalid @enderror" placeholder="العنوان">
                                         @error('address')
                                             <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>
@@ -42,7 +42,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="البريد الإلكتروني">
+                                        <input type="text" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" placeholder="البريد الإلكتروني">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" placeholder="رقم الجوال">
+                                        <input type="text" name="phone" value="{{ old('phone') }}" class="form-control @error('phone') is-invalid @enderror" placeholder="رقم الجوال">
                                         @error('phone')
                                             <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>

@@ -32,9 +32,8 @@
             if ($seats <= $trip->seats) {
 
                 $cost = ($trip->price * $adults) + ($trip->price * $children) + ($trip->baby_price * $baby);
-                $client = Client::with(['balance'])->find(auth()->id());
 
-                if ($cost < $client->balance->balance) {
+                if ($cost < auth('client')->user()->balance->balance) {
                     return view('front.reservations', compact('adults', 'children', 'baby', 'trip'));
                 }
                 Alert::error('ليس لديك رصيد كافي!');

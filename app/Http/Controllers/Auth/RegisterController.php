@@ -4,7 +4,6 @@
 
     use App\Http\Controllers\Controller;
     use App\Models\Control\Client;
-    use App\Providers\RouteServiceProvider;
     use Illuminate\Foundation\Auth\RegistersUsers;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\Validator;
@@ -54,7 +53,7 @@
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:clients'],
                 'company' => ['required', 'string', 'max:255'],
                 'address' => ['required', 'string', 'max:255'],
-                'phone' => ['required','max:15'],
+                'phone' => ['required', 'max:15'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
         }
@@ -67,13 +66,15 @@
          */
         protected function create(array $data)
         {
-            return Client::create([
+            $client = Client::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'company' => $data['company'],
                 'address' => $data['address'],
                 'phone' => $data['phone'],
-                'password' => Hash::make($data['password']),
+                'password' => Hash::make($data['password'])
             ]);
+            $client->attachRole('client');
+            return $client;
         }
     }

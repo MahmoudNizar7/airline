@@ -68,6 +68,6 @@
             'localeCookieRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
             'localeViewPath' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
 
-            'admin' => \App\Http\Middleware\RedirectIfNotClient::class,
+            'client' => \App\Http\Middleware\RedirectIfNotClient::class,
         ];
     }

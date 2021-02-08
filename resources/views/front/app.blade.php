@@ -169,11 +169,12 @@
 
 <script src="https://kit.fontawesome.com/111a66e208.js" crossorigin="anonymous"></script>
 @livewireScripts
-
+@include('sweetalert::alert')
 <script type="text/javascript">
     window.livewire.on('userStore', () => {
         $('#exampleModal').modal('hide');
     });
 </script>
+@yield('scripts')
 </body>
 </html>
