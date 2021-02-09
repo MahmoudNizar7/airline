@@ -22,7 +22,7 @@ class CreateTripsTable extends Migration
             $table->integer('price');
             $table->integer('baby_price');
             $table->integer('seats');
-            $table->dateTime('date');
+            $table->string('date');
             $table->string('image')->nullable();
             $table->timestamps();
         });

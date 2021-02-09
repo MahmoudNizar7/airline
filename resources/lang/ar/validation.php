@@ -176,5 +176,145 @@ return [
         'available'             => 'مُتاح',
         'size'                  => 'الحجم',
         'company'                  => 'اسم الشركة',
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        'adults.first_name.0' =>'الاسم الاول',
+        'adults.last_name.0' =>'الاسم الثاني',
+        'adults.bod.0' =>'تاريخ الميلاد',
+        'adults.nationality.0' =>'الجنسية',
+        'adults.passport_no.0' =>'رقم جواز السفر',
+        'adults.passport_ex_date.0' =>'تاريخ انتهاء جواز السفر',
+
+        'children.first_name.0' =>'الاسم الاول',
+        'children.last_name.0' =>'الاسم الثاني',
+        'children.bod.0' =>'تاريخ الميلاد',
+        'children.nationality.0' =>'الجنسية',
+        'children.passport_no.0' =>'رقم جواز السفر',
+        'children.passport_ex_date.0' =>'تاريخ انتهاء جواز السفر',
+
+        'baby.first_name.0' =>'الاسم الاول',
+        'baby.last_name.0' =>'الاسم الثاني',
+        'baby.bod.0' =>'تاريخ الميلاد',
+        'baby.nationality.0' =>'الجنسية',
+        'baby.passport_no.0' =>'رقم جواز السفر',
+        'baby.passport_ex_date.0' =>'تاريخ انتهاء جواز السفر',
+
+        ///////////////////////////////////////////////////////////////////////////////////
+
+        'adults.first_name.1' =>'الاسم الاول',
+        'adults.last_name.1' =>'الاسم الثاني',
+        'adults.bod.1' =>'تاريخ الميلاد',
+        'adults.nationality.1' =>'الجنسية',
+        'adults.passport_no.1' =>'رقم جواز السفر',
+        'adults.passport_ex_date.1' =>'تاريخ انتهاء جواز السفر',
+
+        'children.first_name.1' =>'الاسم الاول',
+        'children.last_name.1' =>'الاسم الثاني',
+        'children.bod.1' =>'تاريخ الميلاد',
+        'children.nationality.1' =>'الجنسية',
+        'children.passport_no.1' =>'رقم جواز السفر',
+        'children.passport_ex_date.1' =>'تاريخ انتهاء جواز السفر',
+
+        'baby.first_name.1' =>'الاسم الاول',
+        'baby.last_name.1' =>'الاسم الثاني',
+        'baby.bod.1' =>'تاريخ الميلاد',
+        'baby.nationality.1' =>'الجنسية',
+        'baby.passport_no.1' =>'رقم جواز السفر',
+        'baby.passport_ex_date.1' =>'تاريخ انتهاء جواز السفر',
+
+        ///////////////////////////////////////////////////////////////////////////////////
+
+        'adults.first_name.2' =>'الاسم الاول',
+        'adults.last_name.2' =>'الاسم الثاني',
+        'adults.bod.2' =>'تاريخ الميلاد',
+        'adults.nationality.2' =>'الجنسية',
+        'adults.passport_no.2' =>'رقم جواز السفر',
+        'adults.passport_ex_date.2' =>'تاريخ انتهاء جواز السفر',
+
+        'children.first_name.2' =>'الاسم الاول',
+        'children.last_name.2' =>'الاسم الثاني',
+        'children.bod.2' =>'تاريخ الميلاد',
+        'children.nationality.2' =>'الجنسية',
+        'children.passport_no.2' =>'رقم جواز السفر',
+        'children.passport_ex_date.2' =>'تاريخ انتهاء جواز السفر',
+
+        'baby.first_name.2' =>'الاسم الاول',
+        'baby.last_name.2' =>'الاسم الثاني',
+        'baby.bod.2' =>'تاريخ الميلاد',
+        'baby.nationality.2' =>'الجنسية',
+        'baby.passport_no.2' =>'رقم جواز السفر',
+        'baby.passport_ex_date.2' =>'تاريخ انتهاء جواز السفر',
+
+        ///////////////////////////////////////////////////////////////////////////////////
+
+        'adults.first_name.3' =>'الاسم الاول',
+        'adults.last_name.3' =>'الاسم الثاني',
+        'adults.bod.3' =>'تاريخ الميلاد',
+        'adults.nationality.3' =>'الجنسية',
+        'adults.passport_no.3' =>'رقم جواز السفر',
+        'adults.passport_ex_date.3' =>'تاريخ انتهاء جواز السفر',
+
+        'children.first_name.3' =>'الاسم الاول',
+        'children.last_name.3' =>'الاسم الثاني',
+        'children.bod.3' =>'تاريخ الميلاد',
+        'children.nationality.3' =>'الجنسية',
+        'children.passport_no.3' =>'رقم جواز السفر',
+        'children.passport_ex_date.3' =>'تاريخ انتهاء جواز السفر',
+
+        'baby.first_name.3' =>'الاسم الاول',
+        'baby.last_name.3' =>'الاسم الثاني',
+        'baby.bod.3' =>'تاريخ الميلاد',
+        'baby.nationality.3' =>'الجنسية',
+        'baby.passport_no.3' =>'رقم جواز السفر',
+        'baby.passport_ex_date.3' =>'تاريخ انتهاء جواز السفر',
+
+        ///////////////////////////////////////////////////////////////////////////////////
+
+        'adults.first_name.4' =>'الاسم الاول',
+        'adults.last_name.4' =>'الاسم الثاني',
+        'adults.bod.4' =>'تاريخ الميلاد',
+        'adults.nationality.4' =>'الجنسية',
+        'adults.passport_no.4' =>'رقم جواز السفر',
+        'adults.passport_ex_date.4' =>'تاريخ انتهاء جواز السفر',
+
+        'children.first_name.4' =>'الاسم الاول',
+        'children.last_name.4' =>'الاسم الثاني',
+        'children.bod.4' =>'تاريخ الميلاد',
+        'children.nationality.4' =>'الجنسية',
+        'children.passport_no.4' =>'رقم جواز السفر',
+        'children.passport_ex_date.4' =>'تاريخ انتهاء جواز السفر',
+
+        'baby.first_name.4' =>'الاسم الاول',
+        'baby.last_name.4' =>'الاسم الثاني',
+        'baby.bod.4' =>'تاريخ الميلاد',
+        'baby.nationality.4' =>'الجنسية',
+        'baby.passport_no.4' =>'رقم جواز السفر',
+        'baby.passport_ex_date.4' =>'تاريخ انتهاء جواز السفر',
+
+        ///////////////////////////////////////////////////////////////////////////////////
+
+        'adults.first_name.5' =>'الاسم الاول',
+        'adults.last_name.5' =>'الاسم الثاني',
+        'adults.bod.5' =>'تاريخ الميلاد',
+        'adults.nationality.5' =>'الجنسية',
+        'adults.passport_no.5' =>'رقم جواز السفر',
+        'adults.passport_ex_date.5' =>'تاريخ انتهاء جواز السفر',
+
+        'children.first_name.5' =>'الاسم الاول',
+        'children.last_name.5' =>'الاسم الثاني',
+        'children.bod.5' =>'تاريخ الميلاد',
+        'children.nationality.5' =>'الجنسية',
+        'children.passport_no.5' =>'رقم جواز السفر',
+        'children.passport_ex_date.5' =>'تاريخ انتهاء جواز السفر',
+
+        'baby.first_name.5' =>'الاسم الاول',
+        'baby.last_name.5' =>'الاسم الثاني',
+        'baby.bod.5' =>'تاريخ الميلاد',
+        'baby.nationality.5' =>'الجنسية',
+        'baby.passport_no.5' =>'رقم جواز السفر',
+        'baby.passport_ex_date.5' =>'تاريخ انتهاء جواز السفر',
+
     ],
 ];
