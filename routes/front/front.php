@@ -23,5 +23,3 @@
     Route::get('/client/login', [ClientLoginController::class, 'showLoginForm'])->name('client.login');
     Route::post('/client/login', [ClientLoginController::class, 'login'])->name('client.login.post');
     Route::post('/client/logout', [ClientLoginController::class, 'logout'])->name('client.logout');
-
-    Route::view('contact-us', 'front.contact')->name('contact');

@@ -43,12 +43,13 @@
         Route::post('settings/profile', [SettingController::class, 'profile_update'])->name('profile.update');
         Route::post('settings/password', [SettingController::class, 'password_update'])->name('password.update');
 
+    });
+
+    Route::group(['prefix' => 'admin'], function () {
         Route::macro('resourceAndActive', function ($url, $controller) {
             Route::post("{$url}/send", "App\\Http\\Controllers\\Control\\{$controller}@reply")->name("{$url}.reply");
-            Route::resource($url, 'App\Http\Controllers\Control\\' . $controller, ['parameters' => ['destroy' => '']])->except(['create', 'store', 'edit', 'update']);
+            Route::resource($url, 'App\Http\Controllers\Control\\' . $controller, ['parameters' => ['destroy' => '']]);
         });
 
         Route::resourceAndActive('inbox', 'MailController');
-
     });
-

@@ -127,7 +127,7 @@
                                                    class="col-3 col-form-label">{{ ucfirst($key) }}</label>
                                             <div class="col-9">
                                                 <input name="{{ $key }}"
-                                                       value="{{ $settings[$index+5]->value ? $settings[$index + 6]->value : '' }}"
+                                                       value="{{ $settings[$index+6]->value ? $settings[$index + 6]->value : '' }}"
                                                        class="form-control m-input @error($key) is-invalid @enderror"
                                                        type="text" id="example-text-input">
                                                 @error($key)<span

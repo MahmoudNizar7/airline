@@ -37,7 +37,8 @@
 
         public function print($reservation_id)
         {
-            $data = Setting::where('key', 'location')->orWhere('key', 'email')->orWhere('key', 'image')->orWhere('key', 'phone')->get();
+            return$settings = \App\Models\Control\Setting::whereIn('key',['location','phone','email','image','rights','facebook','twitter','instagram','whatsapp'])->get();
+            $data = Setting::whereIn('key',['location','email','image','phone'])->get();
             $reservation = Reservation::whereId($reservation_id)->first();
             $client_trips = ClientTrip::where('reservation_id', $reservation->id)->get();
 

@@ -10,6 +10,11 @@
 
     class MailController extends Controller
     {
+        public function __construct()
+        {
+            $this->middleware('auth')->except(['create', 'store']);
+        }
+
         public function index()
         {
             $messages = Mail::orderBy('created_at', 'desc')->paginate(10);
@@ -39,6 +44,32 @@
             \Illuminate\Support\Facades\Mail::to($request->to)->send(new ReplyClient($details));
             Alert::success('تم الإرسال بنجاح');
             return redirect()->route('inbox.index');
+        }
+
+        public function create()
+        {
+            return view('front.contact');
+        }
+
+        public function store(Request $request)
+        {
+            $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|max:300',
+                'phone' => 'required|max:15',
+                'nationality' => 'required',
+                'message' => 'required',
+            ]);
+
+            Mail::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'title' => $request->nationality . '' . $request->phone,
+                'body' => $request->message,
+            ]);
+
+            Alert::success('تم الإرسال بنجاح');
+            return redirect()->route('inbox.create');
         }
 
     }
