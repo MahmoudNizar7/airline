@@ -34,7 +34,7 @@
 
                 $cost = ($trip->price * $adults) + ($trip->price * $children) + ($trip->baby_price * $baby);
 
-                if ($cost < auth('client')->user()->balance->balance) {
+                if ($cost <= auth('client')->user()->balance->balance) {
                     return view('front.reservations', compact('adults', 'children', 'baby', 'trip'));
                 }
                 Alert::error('ليس لديك رصيد كافي!');
@@ -53,9 +53,9 @@
 
             $trip = Trip::findOrFail($request->trip_id);
 
-//            $request->validate([
-//                'type' => 'required',
-//            ]);
+            $request->validate([
+                'type' => 'required',
+            ]);
 
             // validate
             if ($adults > 0) {
@@ -207,14 +207,16 @@
                 'about' => $reservation->PNR
             ]);
 
-            Alert::success('تم الحجز بنجاح');
-            return redirect()->route('home');
+            return view('front.success', compact('reservation'));
 
         }
 
-        public function show(ClientTrip $clientTrip)
+        public function show($reservation_id)
         {
-            //
+            $reservation = Reservation::whereId($reservation_id)->first();
+            $client_trips = ClientTrip::where('reservation_id', $reservation->id)->get();
+
+            return view('front.show_trips', compact('reservation', 'client_trips'));
         }
 
         public function edit(ClientTrip $clientTrip)

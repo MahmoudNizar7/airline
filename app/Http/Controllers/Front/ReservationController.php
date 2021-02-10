@@ -3,7 +3,10 @@
     namespace App\Http\Controllers\Front;
 
     use App\Http\Controllers\Controller;
+    use App\Models\Control\Client;
+    use App\Models\Control\Setting;
     use App\Models\Control\Trip;
+    use App\Models\Front\ClientTrip;
     use App\Models\Front\Reservation;
     use Illuminate\Http\Request;
 
@@ -17,7 +20,7 @@
 
         public function create()
         {
-           //
+            //
         }
 
         public function store(Request $request)
@@ -25,9 +28,20 @@
             //
         }
 
-        public function show(Reservation $reservation)
+        public function show($id)
         {
-            //
+            $client = Client::find($id);
+            $reservations = Reservation::with('trip')->where('client_id', $id)->get();
+            return view('front.show_reservations', compact('client', 'reservations'));
+        }
+
+        public function print($reservation_id)
+        {
+            $data = Setting::where('key', 'location')->orWhere('key', 'email')->orWhere('key', 'image')->orWhere('key', 'phone')->get();
+            $reservation = Reservation::whereId($reservation_id)->first();
+            $client_trips = ClientTrip::where('reservation_id', $reservation->id)->get();
+
+            return view('front.print', compact('reservation', 'client_trips', 'data'));
         }
 
         public function edit(Reservation $reservation)

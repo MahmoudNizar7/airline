@@ -1,6 +1,6 @@
 @extends('front.app')
 @section('content')
-
+    @php($page = "home")
     <livewire:reservation />
 
 @stop

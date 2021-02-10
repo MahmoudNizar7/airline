@@ -2,6 +2,7 @@
 
     namespace App\Models\Front;
 
+    use App\Models\Control\Trip;
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Database\Eloquent\Model;
 
@@ -16,4 +17,10 @@
         {
             return $this->hasMany(ClientTrip::class, 'reservation_id', 'id');
         }
+
+        public function trip()
+        {
+            return $this->belongsTo(Trip::class, 'trip_id', 'id');
+        }
+
     }
