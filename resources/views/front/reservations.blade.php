@@ -304,7 +304,7 @@
                                         <div class="col-lg-2">
                                             <label >Nationality</label>
                                             <select name="children[nationality][]" class="form-control @error('children.nationality.'.$no) is-invalid @enderror" id="nationality1">
-                                                <option value="">-- select one --</option>
+                                                <option value="">اختر الدولة</option>
                                                 <option value="afghan">Afghan</option>
                                                 <option value="albanian">Albanian</option>
                                                 <option value="algerian">Algerian</option>
@@ -546,7 +546,7 @@
                                         <div class="col-lg-2">
                                             <label>Nationality</label>
                                             <select name="baby[nationality][]" class="form-control @error('baby.nationality.'.$no) is-invalid @enderror" id="nationality1">
-                                                <option value="">-- select one --</option>
+                                                <option value="">اختر الدولة</option>
                                                 <option value="afghan">Afghan</option>
                                                 <option value="albanian">Albanian</option>
                                                 <option value="algerian">Algerian</option>

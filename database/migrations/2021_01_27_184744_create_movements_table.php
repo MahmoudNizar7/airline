@@ -18,7 +18,7 @@ class CreateMovementsTable extends Migration
             $table->foreignId('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->foreignId('balance_id')->references('id')->on('balances')->onDelete('cascade');;
             $table->String('value');
-            $table->integer('remainder');
+            $table->double('remainder');
             $table->String('about');
             $table->timestamps();
         });

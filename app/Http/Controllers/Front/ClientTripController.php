@@ -53,9 +53,9 @@
 
             $trip = Trip::findOrFail($request->trip_id);
 
-            $request->validate([
-                'type' => 'required',
-            ]);
+//            $request->validate([
+//                'type' => 'required',
+//            ]);
 
             // validate
             if ($adults > 0) {
@@ -135,7 +135,7 @@
                 'children' => $children,
                 'baby' => $baby,
                 'cost' => $cost,
-                'trip_id' => $request->trip_id,
+                'trip_id' => $trip->id,
                 'client_id' => auth('client')->id(),
             ]);
 
@@ -187,7 +187,6 @@
                 }
             }
 
-
             $client = Client::with(['balance'])->find(auth('client')->id());
             $final_balance = $client->balance->balance - $cost;
 
@@ -209,7 +208,7 @@
             ]);
 
             Alert::success('تم الحجز بنجاح');
-            return redirect()->back();
+            return redirect()->route('home');
 
         }
 

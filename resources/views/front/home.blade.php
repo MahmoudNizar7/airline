@@ -1,7 +1,7 @@
 @extends('front.app')
 @section('content')
 
-    <livewire:reservation/>
+    <livewire:reservation />
 
 @stop
 @section('scripts')

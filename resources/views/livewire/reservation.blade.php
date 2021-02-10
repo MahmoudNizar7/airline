@@ -3,7 +3,6 @@
     <div class="content-body-homepage">
         <div class="container">
             <div class="content-warper wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-
                 <div class="row justify-content-center pt-10">
                     <div class="col-xl-12">
                         <table class="table table-bordered table-hover table-striped ">
