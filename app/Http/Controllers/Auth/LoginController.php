@@ -39,7 +39,7 @@
             if (auth()->check()) {
                 return '/home';
             } elseif (auth('client')->check()) {
-                return 'reservations/index';
+                return '/reservations/index';
             }
         }
     }
