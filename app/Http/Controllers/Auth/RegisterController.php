@@ -29,7 +29,7 @@
 
         // protected $redirectTo = '/';
 
-        protected function authenticated()
+        protected function redirectTo()
         {
             if (auth()->check()) {
                 return redirect()->route('admin');
@@ -37,7 +37,6 @@
                 return redirect()->route('home');
             }
         }
-
 
         /**
          * Create a new controller instance.
