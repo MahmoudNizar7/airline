@@ -26,8 +26,7 @@
 
         use RegistersUsers;
 
-
-        // protected $redirectTo = '/';
+        //protected $redirectTo = '/';
 
         protected function redirectTo()
         {
