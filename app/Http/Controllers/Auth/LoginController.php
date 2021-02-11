@@ -37,9 +37,9 @@
         protected function authenticated()
         {
             if (auth()->check()) {
-                return redirect()->route('admin');
+                return '/home';
             } elseif (auth('client')->check()) {
-                return redirect()->route('home');
+                return 'reservations/index';
             }
         }
     }
