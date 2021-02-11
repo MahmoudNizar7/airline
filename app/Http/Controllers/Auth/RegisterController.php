@@ -32,7 +32,7 @@
         protected function redirectTo()
         {
             if (auth()->check()) {
-                return '/admin';
+                return view('front.home');
             } elseif (auth('client')->check()) {
                 return view('front.home');
             }
