@@ -26,24 +26,18 @@
 
         use RegistersUsers;
 
-        /**
-         * Where to redirect users after registration.
-         *
-         * @var string
-         */
 
-        // protected $redirectTo = '';
+        //protected $redirectTo = '/';
 
-//        protected function redirectTo()
-//        {
-//            if (auth()->check()) {
-//                return redirect()->route('admin');
-//            } elseif (auth('client')->check()) {
-//                return redirect()->route('home');
-//            }
-//
-//            return '/home';
-//        }
+        protected function redirectTo()
+        {
+            if (auth()->check()) {
+                return redirect()->route('admin');
+            } elseif (auth('client')->check()) {
+                return redirect()->route('home');
+            }
+
+        }
 
 
         /**
