@@ -194,10 +194,12 @@
                 'balance' => $final_balance
             ]);
 
-            $seats = $adults + $children + $baby;
-            $trip->update([
-                'seats' => $trip->seats - $seats
-            ]);
+            if ($reservation->confirmation) {
+                $seats = $adults + $children + $baby;
+                $trip->update([
+                    'seats' => $trip->seats - $seats
+                ]);
+            }
 
             Movement::create([
                 'client_id' => auth('client')->id(),
