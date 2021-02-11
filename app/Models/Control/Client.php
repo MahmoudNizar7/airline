@@ -11,12 +11,7 @@
     {
         use LaratrustUserTrait, HasFactory;
 
-
-        protected $table = 'clients';
-
-        protected $fillable = ['name', 'email', 'company', 'address', 'phone', 'password', 'image'];
-
-        protected $hidden = ['password', 'remember_token'];
+        protected $guarded = [];
 
         public function balance()
         {

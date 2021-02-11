@@ -1,6 +1,7 @@
 <?php
 
     use App\Http\Controllers\Auth\ClientLoginController;
+    use App\Http\Controllers\Auth\RegisterController;
     use App\Http\Controllers\Front\ClientTripController;
     use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,13 @@
         });
 
         Route::resourceAndActive('reservations', 'ReservationController');
+
+        Route::get('profile', function () {
+            $client = auth('client')->user();
+            return view('front.profile', compact('client'));
+        })->name('profile.show');
+
+        Route::post('profile', [RegisterController::class, 'update'])->name('profile.update');
     });
 
     Route::view('/', 'front.home')->name('home');

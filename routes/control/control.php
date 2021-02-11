@@ -31,7 +31,6 @@
         Route::resourceAndActive('clients', 'ClientController');
 
 
-        Route::resource('balances', BalanceController::class)->except(['store', 'show', 'edit', 'destroy', 'update']);
         Route::resource('trips', TripController::class)->except(['store', 'show', 'update']);
         Route::resource('countries', CountryController::class)->except(['store', 'show', 'update']);
         Route::resource('users', UserController::class)->except(['store', 'update', 'show']);
@@ -46,6 +45,9 @@
     });
 
     Route::group(['prefix' => 'admin'], function () {
+
+        Route::resource('balances', BalanceController::class)->except(['store', 'edit', 'destroy', 'update']);
+
         Route::macro('resourceAndActive', function ($url, $controller) {
             Route::post("{$url}/send", "App\\Http\\Controllers\\Control\\{$controller}@reply")->name("{$url}.reply");
             Route::resource($url, 'App\Http\Controllers\Control\\' . $controller, ['parameters' => ['destroy' => '']]);

@@ -51,7 +51,7 @@
                                             <td class="d-flex">
                                                 <a target="_blank" class="btn btn-default" href="{{ route('reservations.print',$reservation->id) }}" title="Print"><i class="fas fa-print"></i></a>
                                                 <a target="_blank" class="btn btn-default" href="{{ route('reservations.print',$reservation->id) }}" title="Print"><i class="fas fa-file-powerpoint"></i></a>
-                                                <a target="_blank" class="btn btn-default" href="{{ route('client_trips.show', $reservation->id) }}" title="Print"><i class="fas fa-eye"></i></a>
+                                                <a target="_blank" class="btn btn-default" href="{{ route('client_trips.show', $reservation->PNR) }}" title="Print"><i class="fas fa-eye"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

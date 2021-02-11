@@ -80,9 +80,9 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('reservations.show', auth('client')->id()) }}"><i class="fas fa-plane-departure"></i>My Trips</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="icon-man-user"></i>Profile</a>
+                                <a class="dropdown-item" href="{{ route('profile.show') }}"><i class="icon-man-user"></i>Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-file-invoice-dollar"></i>Balance</a>
+                                <a class="dropdown-item" href="{{ route('balances.show',auth('client')->id()) }}"><i class="fas fa-file-invoice-dollar"></i>Balance</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('client.logout') }}"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">

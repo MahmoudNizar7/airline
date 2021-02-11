@@ -5,8 +5,11 @@
     use App\Http\Controllers\Controller;
     use App\Models\Control\Client;
     use Illuminate\Foundation\Auth\RegistersUsers;
+    use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\Validator;
+    use Illuminate\Validation\Rule;
+    use RealRashid\SweetAlert\Facades\Alert;
 
     class RegisterController extends Controller
     {
@@ -38,6 +41,29 @@
         public function __construct()
         {
             $this->middleware('guest');
+        }
+
+        public function update(Request $request)
+        {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', Rule::unique('clients', 'email')->ignore(auth('client')->id())],
+                'company' => ['required', 'string', 'max:255'],
+                'address' => ['required', 'string', 'max:255'],
+                'phone' => ['required', 'max:15'],
+            ]);
+
+            auth('client')->user()->update([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'company' => $request['company'],
+                'address' => $request['address'],
+                'phone' => $request['phone'],
+            ]);
+
+            Alert::success('تم تعديل البيانات بنجاح');
+            return redirect()->route('profile.show');
+
         }
 
         /**
@@ -77,4 +103,5 @@
             $client->attachRole('client');
             return $client;
         }
+
     }

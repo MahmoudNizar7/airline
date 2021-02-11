@@ -211,9 +211,9 @@
 
         }
 
-        public function show($reservation_id)
+        public function show($PNR)
         {
-            $reservation = Reservation::whereId($reservation_id)->first();
+            $reservation = Reservation::where('PNR', $PNR)->first();
             $client_trips = ClientTrip::where('reservation_id', $reservation->id)->get();
 
             return view('front.show_trips', compact('reservation', 'client_trips'));
