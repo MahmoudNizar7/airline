@@ -34,7 +34,7 @@
             if (auth()->check()) {
                 return '/admin';
             } elseif (auth('client')->check()) {
-                return '/admin';
+                return view('front.home');
             }
 
         }
