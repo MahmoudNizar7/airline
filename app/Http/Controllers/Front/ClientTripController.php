@@ -34,7 +34,7 @@
 
                 $cost = ($trip->price * $adults) + ($trip->price * $children) + ($trip->baby_price * $baby);
 
-                if ($cost <= auth('client')->user()->balance->balance) {
+                if ($cost <= isset(auth('client')->user()->balance->balance)) {
                     return view('front.reservations', compact('adults', 'children', 'baby', 'trip'));
                 }
                 Alert::error('ليس لديك رصيد كافي!');
