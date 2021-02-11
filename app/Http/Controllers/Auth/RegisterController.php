@@ -31,9 +31,8 @@
          *
          * @var string
          */
-        //
 
-        protected $redirectTo = '/';
+        // protected $redirectTo = '/';
 
         protected function redirectTo()
         {
