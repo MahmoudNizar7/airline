@@ -190,12 +190,14 @@
             $client = Client::with(['balance'])->find(auth('client')->id());
             $final_balance = $client->balance->balance - $cost;
 
-            $client->balance->update([
-                'balance' => $final_balance
-            ]);
-
             if ($reservation->confirmation) {
+
+                $client->balance->update([
+                    'balance' => $final_balance
+                ]);
+
                 $seats = $adults + $children + $baby;
+
                 $trip->update([
                     'seats' => $trip->seats - $seats
                 ]);

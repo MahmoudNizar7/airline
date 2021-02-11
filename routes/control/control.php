@@ -44,7 +44,7 @@
 
     });
 
-    Route::group(['prefix' => 'admin'], function () {
+    Route::group(['prefix' => 'client'], function () {
 
         Route::resource('balances', BalanceController::class)->except(['store', 'edit', 'destroy', 'update']);
 

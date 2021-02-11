@@ -42,7 +42,7 @@
 
             foreach ($reservations as $reservation) {
 
-                $diff = now()->diffInMinutes($reservation->created_at);
+                $diff = now()->diffInHours($reservation->created_at);
                 if ($diff >= 2) {
                     $reservation->delete();
                 }
