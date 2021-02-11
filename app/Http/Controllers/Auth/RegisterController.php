@@ -29,14 +29,14 @@
 
         // protected $redirectTo = '/';
 
-//        protected function authenticated()
-//        {
-//            if (auth()->check()) {
-//                return redirect()->route('admin');
-//            } elseif (auth('client')->check()) {
-//                return redirect()->route('home');
-//            }
-//        }
+        protected function authenticated()
+        {
+            if (auth()->check()) {
+                return redirect()->route('admin');
+            } elseif (auth('client')->check()) {
+                return redirect()->route('home');
+            }
+        }
 
 
         /**
