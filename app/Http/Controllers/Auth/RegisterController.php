@@ -47,6 +47,7 @@
         public function __construct()
         {
             $this->middleware('guest');
+            $this->middleware('guest:client');
         }
 
         public function update(Request $request)
