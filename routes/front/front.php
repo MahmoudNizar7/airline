@@ -26,7 +26,7 @@
         Route::post('profile', [RegisterController::class, 'update'])->name('profile.update');
     });
 
-    Route::view('/home', 'front.home')->name('home');
+    Route::view('/', 'front.home')->name('home');
 
     Route::get('/client/login', [ClientLoginController::class, 'showLoginForm'])->name('client.login');
     Route::post('/client/login', [ClientLoginController::class, 'login'])->name('client.login.post');

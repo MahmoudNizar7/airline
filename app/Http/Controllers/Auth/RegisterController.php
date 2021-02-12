@@ -34,7 +34,7 @@
             if (auth()->check()) {
                 return '/admin';
             } elseif (auth('client')->check()) {
-                return '/home';
+                return '/';
             }
         }
 
