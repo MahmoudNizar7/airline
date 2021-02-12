@@ -6,6 +6,7 @@
     use App\Models\Control\Client;
     use Illuminate\Foundation\Auth\RegistersUsers;
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\Validator;
     use Illuminate\Validation\Rule;
@@ -31,10 +32,10 @@
 
         protected function redirectTo()
         {
-            if (auth('client')->check()) {
-                return '/admin';
-            } elseif (auth()->check()) {
+            if (Auth::guard('client')) {
                 return '/';
+            } elseif (Auth::check()) {
+                return '/admin';
             }
         }
 
@@ -46,7 +47,7 @@
          */
         public function __construct()
         {
-            $this->middleware('guest:client');
+            $this->middleware('guest');
         }
 
         public function update(Request $request)
@@ -108,6 +109,11 @@
             ]);
             $client->attachRole('client');
             return $client;
+        }
+
+        public function guard()
+        {
+            return Auth::guard('client');
         }
 
     }
