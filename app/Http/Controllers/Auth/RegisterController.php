@@ -32,7 +32,7 @@
         protected function redirectTo()
         {
             if (auth()->check()) {
-                return '/';
+                return '/admin';
             } elseif (auth('client')->check()) {
                 return '/';
             }
@@ -46,7 +46,6 @@
          */
         public function __construct()
         {
-            $this->middleware('guest');
             $this->middleware('guest:client');
         }
 
