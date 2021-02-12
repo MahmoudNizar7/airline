@@ -31,9 +31,9 @@
 
         protected function redirectTo()
         {
-            if (auth()->check()) {
+            if (auth('client')->check()) {
                 return '/admin';
-            } elseif (auth('client')->check()) {
+            } elseif (auth()->check()) {
                 return '/';
             }
         }
