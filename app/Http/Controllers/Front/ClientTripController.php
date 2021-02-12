@@ -72,6 +72,11 @@
                 $no = $adults - 1;
                 for ($no; $no >= 0; $no--) {
 
+                    if (Carbon::parse($request->adults['bod'][$no])->diff($trip->date)->format('%y') < 3) {
+                        Alert::error(__('site.adult_must_be_more_than_three'));
+                        return redirect()->back();
+                    }
+
                     if ((!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->adults['passport_ex_date'][$no]), 'قبل')) && (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->adults['passport_ex_date'][$no]), 'before'))) {
                         Alert::error(__('site.passport_not_valid') . date('Y-m-d', strtotime($trip->date)));
                         return redirect()->back();
@@ -93,6 +98,11 @@
 
                 $no = $children - 1;
                 for ($no; $no >= 0; $no--) {
+
+                    if (Carbon::parse($request->children['bod'][$no])->diff($trip->date)->format('%y') < 3) {
+                        Alert::error(__('site.children_must_be_more_than_three'));
+                        return redirect()->back();
+                    }
 
                     if ((!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->children['passport_ex_date'][$no]), 'قبل')) && (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->children['passport_ex_date'][$no]), 'before'))) {
                         Alert::error(__('site.passport_not_valid') . date('Y-m-d', strtotime($trip->date)));
@@ -116,7 +126,7 @@
                 for ($no; $no >= 0; $no--) {
 
                     if (Carbon::parse($request->baby['bod'][$no])->diff($trip->date)->format('%y') > 3) {
-                        Alert::error(__('site.baby_must_be_more_than_three'));
+                        Alert::error(__('site.baby_must_be_less_than_three'));
                         return redirect()->back();
                     }
                     if ((!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->baby['passport_ex_date'][$no]), 'قبل')) && (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->baby['passport_ex_date'][$no]), 'before'))) {

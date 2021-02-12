@@ -4,6 +4,8 @@
 
     use App\Http\Controllers\Controller;
     use App\Models\Control\Movement;
+    use App\Models\Front\ClientTrip;
+    use App\Models\Front\Reservation;
 
     class BalanceController extends Controller
     {
@@ -30,6 +32,14 @@
         {
             $movements = Movement::where('client_id', $id)->get();
             return view('front.show_balance', compact('movements'));
+        }
+
+        public function admin_show($PNR)
+        {
+            $reservation = Reservation::where('PNR', $PNR)->first();
+            $client_trips = ClientTrip::where('reservation_id', $reservation->id)->get();
+
+            return view('control.balances.show_trips', compact( 'client_trips'));
         }
 
     }

@@ -54,7 +54,14 @@
 
             Route::resourceAndActive('inbox', 'MailController');
 
-            Route::resource('balances', BalanceController::class)->except(['store', 'edit', 'destroy', 'update']);
+            //Route::resource('balances', BalanceController::class)->except(['store', 'edit', 'destroy', 'update']);
+
+            Route::macro('resourceAndActive', function ($url, $controller) {
+                Route::get("{$url}/show/{reservation}", "App\\Http\\Controllers\\Control\\{$controller}@admin_show")->name("{$url}.admin_show");
+                Route::resource($url, 'App\Http\Controllers\Control\\' . $controller);
+            });
+
+            Route::resourceAndActive('balances', 'BalanceController');
 
         });
     });

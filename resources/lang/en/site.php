@@ -80,6 +80,8 @@
         'have_not_seats' => 'Exceeding the number of available seats',
         'passport_not_valid' => 'The passport must be valid until the date',
         'baby_must_be_more_than_three' => "The baby's age must be less than three years",
+        'children_must_be_more_than_three' => "The child's age must be at least three years",
+        'adult_must_be_more_than_three' => "The adult's age must be more than three years",
 
         ////////////////////////////////////////////////////////////////////////////////////
         /// countries

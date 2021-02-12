@@ -86,7 +86,6 @@
 
             </div>
             <!--end::Form-->
-            {{--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
             <div class="row">
                 <div class="col-xl-6 col-lg-12">
 
@@ -96,7 +95,7 @@
                             <div class="m-portlet__head-caption">
                                 <div class="m-portlet__head-title">
                                     <h3 class="m-portlet__head-text">
-                                        كشف الحساب
+                                        التذاكر الخاصة به
                                     </h3>
                                 </div>
                             </div>
@@ -194,7 +193,10 @@
                                                                     <td>{{ $movement->id }}</td>
                                                                     <td>{{ $movement->value }}</td>
                                                                     <td>{{ $movement->remainder }}</td>
-                                                                    <td>{{ $movement->about }}</td>
+                                                                    <td>
+                                                                        @if( $movement->about === "شحن الرصيد" ) {{ $movement->about }} @else
+                                                                            <a target="_blank" href="{{ route('balances.admin_show', $movement->about) }}">{{ $movement->about }}</a> @endif
+                                                                    </td>
                                                                     <td>{{ $movement->created_at }}</td>
                                                                 </tr>
                                                             @endforeach

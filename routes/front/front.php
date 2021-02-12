@@ -9,7 +9,7 @@
 
         Route::group(['middleware' => 'client'], function () {
 
-            //Route::resource('reservations', ReservationController::class);
+
             Route::resource('client_trips', ClientTripController::class);
 
             Route::macro('resourceAndActive', function ($url, $controller) {

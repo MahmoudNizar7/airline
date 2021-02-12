@@ -42,7 +42,8 @@
                                                     <td><a href="{{ route('clients.show',$movement->clients->id) }}">{{ $movement->clients->name }}</a></td>
                                                     <td>{{ $movement->value }}</td>
                                                     <td>{{ $movement->remainder }}</td>
-                                                    <td>{{ $movement->about }}</td>
+                                                    <td>@if( $movement->about === "شحن الرصيد" ) {{ $movement->about }} @else <a
+                                                            target="_blank" href="{{ route('balances.admin_show', $movement->about) }}">{{ $movement->about }}</a> @endif</td>
                                                 </tr>
                                             @endforeach
                                         @else
