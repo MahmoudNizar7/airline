@@ -37,11 +37,11 @@
                 if ($cost <= isset(auth('client')->user()->balance->balance)) {
                     return view('front.reservations', compact('adults', 'children', 'baby', 'trip'));
                 }
-                Alert::error('ليس لديك رصيد كافي!');
+                Alert::error(__('site.have_not_balance'));
                 return redirect()->back();
 
             }
-            Alert::error('تجاوز عدد المقاعد المتوفرة');
+            Alert::error(__('site.have_not_seats'));
             return redirect()->back();
         }
 
@@ -72,9 +72,10 @@
                 $no = $adults - 1;
                 for ($no; $no >= 0; $no--) {
 
-                    if (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->adults['passport_ex_date'][$no]), 'قبل')) {
-                        Alert::error('يجب ان يكون جواز السفر صالح حتى تاريخ ' . date('Y-m-d', strtotime($trip->date)));
+                    if ((!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->adults['passport_ex_date'][$no]), 'قبل')) && (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->adults['passport_ex_date'][$no]), 'before'))) {
+                        Alert::error(__('site.passport_not_valid') . date('Y-m-d', strtotime($trip->date)));
                         return redirect()->back();
+
                     }
 
                 }
@@ -93,8 +94,8 @@
                 $no = $children - 1;
                 for ($no; $no >= 0; $no--) {
 
-                    if (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->children['passport_ex_date'][$no]), 'قبل')) {
-                        Alert::error('يجب ان يكون جواز السفر صالح حتى تاريخ ' . date('Y-m-d', strtotime($trip->date)));
+                    if ((!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->children['passport_ex_date'][$no]), 'قبل')) && (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->children['passport_ex_date'][$no]), 'before'))) {
+                        Alert::error(__('site.passport_not_valid') . date('Y-m-d', strtotime($trip->date)));
                         return redirect()->back();
                     }
 
@@ -115,11 +116,11 @@
                 for ($no; $no >= 0; $no--) {
 
                     if (Carbon::parse($request->baby['bod'][$no])->diff($trip->date)->format('%y') > 3) {
-                        Alert::error('عمر الطفل يجب ان يكون اقل من ثلاث اعوام');
+                        Alert::error(__('site.baby_must_be_more_than_three'));
                         return redirect()->back();
                     }
-                    if (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->baby['passport_ex_date'][$no]), 'قبل')) {
-                        Alert::error('يجب ان يكون جواز السفر صالح حتى تاريخ ' . date('Y-m-d', strtotime($trip->date)));
+                    if ((!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->baby['passport_ex_date'][$no]), 'قبل')) && (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->baby['passport_ex_date'][$no]), 'before'))) {
+                        Alert::error(__('site.passport_not_valid') . date('Y-m-d', strtotime($trip->date)));
                         return redirect()->back();
                     }
 
@@ -211,8 +212,7 @@
                 'about' => $reservation->PNR
             ]);
 
-            return view('front.success', compact('reservation'));
-
+            return redirect()->route('success', $reservation);
         }
 
         public function show($PNR)

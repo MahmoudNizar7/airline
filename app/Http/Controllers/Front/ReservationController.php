@@ -37,7 +37,7 @@
 
         public function print($reservation_id)
         {
-            $data = Setting::whereIn('key',['location','email','image','phone'])->get();
+            $data = Setting::whereIn('key', ['location', 'email', 'image', 'phone'])->get();
             $reservation = Reservation::whereId($reservation_id)->first();
             $client_trips = ClientTrip::where('reservation_id', $reservation->id)->get();
 
@@ -46,7 +46,7 @@
 
         public function edit(Reservation $reservation)
         {
-            //
+            return view('front.success', compact('reservation'));
         }
 
         public function update(Request $request, Reservation $reservation)

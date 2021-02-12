@@ -5,29 +5,33 @@
     use App\Http\Controllers\Front\ClientTripController;
     use Illuminate\Support\Facades\Route;
 
+    Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
-    Route::group(['middleware' => 'client'], function () {
+        Route::group(['middleware' => 'client'], function () {
 
-        //Route::resource('reservations', ReservationController::class);
-        Route::resource('client_trips', ClientTripController::class);
+            //Route::resource('reservations', ReservationController::class);
+            Route::resource('client_trips', ClientTripController::class);
 
-        Route::macro('resourceAndActive', function ($url, $controller) {
-            Route::get("{$url}/print/{reservation}", "App\\Http\\Controllers\\Front\\{$controller}@print")->name("{$url}.print");
-            Route::resource($url, 'App\Http\Controllers\Front\\' . $controller);
+            Route::macro('resourceAndActive', function ($url, $controller) {
+                Route::get("{$url}/print/{reservation}", "App\\Http\\Controllers\\Front\\{$controller}@print")->name("{$url}.print");
+                Route::resource($url, 'App\Http\Controllers\Front\\' . $controller)
+                    ->names(['edit' => 'success']);
+            });
+
+            Route::resourceAndActive('reservations', 'ReservationController');
+
+            Route::get('profile', function () {
+                $client = auth('client')->user();
+                return view('front.profile', compact('client'));
+            })->name('profile.show');
+
+            Route::post('profile', [RegisterController::class, 'update'])->name('profile.update');
         });
 
-        Route::resourceAndActive('reservations', 'ReservationController');
+        Route::view('/', 'front.home')->name('home');
 
-        Route::get('profile', function () {
-            $client = auth('client')->user();
-            return view('front.profile', compact('client'));
-        })->name('profile.show');
+        Route::get('/client/login', [ClientLoginController::class, 'showLoginForm'])->name('client.login');
+        Route::post('/client/login', [ClientLoginController::class, 'login'])->name('client.login.post');
+        Route::post('/client/logout', [ClientLoginController::class, 'logout'])->name('client.logout');
 
-        Route::post('profile', [RegisterController::class, 'update'])->name('profile.update');
     });
-
-    Route::view('/', 'front.home')->name('home');
-
-    Route::get('/client/login', [ClientLoginController::class, 'showLoginForm'])->name('client.login');
-    Route::post('/client/login', [ClientLoginController::class, 'login'])->name('client.login.post');
-    Route::post('/client/logout', [ClientLoginController::class, 'logout'])->name('client.logout');

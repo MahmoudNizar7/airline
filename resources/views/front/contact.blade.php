@@ -5,7 +5,7 @@
         <div class="content-homepage">
             <div class="content-header-homepage  gradient-overlay">
                 <div class="container">
-                    <h2>Contact Us</h2>
+                    <h2>{{ __('site.contact_us') }}</h2>
                 </div>
             </div>
             <div class="content-body-homepage">
@@ -13,11 +13,11 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
                             <div class="content-warper wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                                <h3 class="two-line-heading text-center">Contact Form</h3>
+                                <h3 class="two-line-heading text-center">{{ __('site.contact_form') }}</h3>
                                 <form action="{{ route('inbox.store') }}" method="post">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" name="name" value="{{ old('name') }}" class="@error('name') is-invalid @enderror form-control" placeholder="Name">
+                                        <input type="text" name="name" value="{{ old('name') }}" class="@error('name') is-invalid @enderror form-control" placeholder="{{ __('site.name') }}">
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>
@@ -25,7 +25,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="email" value="{{ old('email') }}" class="@error('email') is-invalid @enderror form-control" placeholder="Email">
+                                        <input type="text" name="email" value="{{ old('email') }}" class="@error('email') is-invalid @enderror form-control" placeholder="{{ __('site.email') }}">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group input-group-phone ">
-                                            <input type="text" name="phone" value="{{ old('phone') }}" class="@error('phone') is-invalid @enderror form-control" placeholder="Phone Number">
+                                            <input type="text" name="phone" value="{{ old('phone') }}" class="@error('phone') is-invalid @enderror form-control" placeholder="{{ __('site.phone') }}">
                                             <div class="input-group-prepend">
                                                 <select class="selectpicker" name="nationality">
                                                     <option data-content="<span>970</span><img width='40' height='30' src='{{ asset('front/img/png/ps.png') }}'> ">970</option>
@@ -296,7 +296,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="message" class="@error('message') is-invalid @enderror form-control p-3" rows="5" placeholder="Message Text">{{ old('message') }}</textarea>
+                                        <textarea name="message" class="@error('message') is-invalid @enderror form-control p-3" rows="5" placeholder="{{ __('site.message') }}">{{ old('message') }}</textarea>
                                         @error('message')
                                         <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>
@@ -305,7 +305,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-lg btn-hover">Send<i class="icon-left-arrow pr-1"></i></button>
+                                        <button type="submit" class="btn btn-lg btn-hover">{{ __('site.send') }}<i class="icon-left-arrow pr-1"></i></button>
                                     </div>
                                 </form>
                             </div>

@@ -8,15 +8,15 @@
                             <table class="table table-bordered table-hover table-striped ">
                                 <thead class="thead-dark">
                                 <tr class="text-center">
-                                    <th><i class="fas fa-map-marker-alt"></i> من</th>
-                                    <th><i class="fas fa-globe-americas"></i> إلى</th>
-                                    <th><i class="fas fa-list-ol"></i> رقم الرحلة</th>
-                                    <th><i class="fas fa-plane-departure"></i> خط الطيران</th>
-                                    <th><i class="fa fa-dollar"></i>السعر</th>
-                                    <th><i class="fas fa-chair"></i> عدد المقاعد</th>
-                                    <th><i class="far fa-calendar-alt"></i> تاريخ الرحلة</th>
-                                    <th><i class="fas fa-clock"></i> الساعة</th>
-                                    <th><i class="fas fa-file-invoice-dollar"></i> حجز</th>
+                                    <th><i class="fas fa-map-marker-alt"></i>{{ __('site.from') }}</th>
+                                    <th><i class="fas fa-globe-americas"></i>{{ __('site.to') }}</th>
+                                    <th><i class="fas fa-list-ol"></i>{{ __('site.trip_number') }}</th>
+                                    <th><i class="fas fa-plane-departure"></i>{{ __('site.flying_line') }}</th>
+                                    <th><i class="fa fa-dollar"></i>{{ __('site.price') }}</th>
+                                    <th><i class="fas fa-chair"></i>{{ __('site.seats_number') }}</th>
+                                    <th><i class="far fa-calendar-alt"></i>{{ __('site.trip_date') }}</th>
+                                    <th><i class="fas fa-clock"></i>{{ __('site.trip_hour') }}</th>
+                                    <th><i class="fas fa-file-invoice-dollar"></i>{{ __('site.reserve') }}</th>
                                 </tr>
                                 </thead>
 
@@ -39,8 +39,7 @@
                                                    @else  data-toggle="modal" data-target="#exampleModal" @endif><i
                                                         class="icon-checked ml-1">
                                                         <span class="path1"></span><span class="path2"></span><span
-                                                            class="path3"></span><span class="path4"></span></i>احجز
-                                                    الأن</a>
+                                                            class="path3"></span><span class="path4"></span></i>{{ __('site.reserve_now') }}</a>
 
                                             </td>
 
@@ -49,7 +48,7 @@
 
                                     @else
                                         <tr>
-                                            <td style="text-align: center" colspan="9">لايوجد رحلات</td>
+                                            <td style="text-align: center" colspan="9">{{ __('site.no_trips') }}</td>
                                         </tr>
                                     @endif
                                     </tbody>
@@ -70,24 +69,24 @@
                 <form action="{{ route('client_trips.create') }}" method="get">
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Number of travelers</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{ __('site.number_of_travelers') }}</h5>
                     </div>
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label for="exampleFormControlInput1">Adults</label>
+                            <label for="exampleFormControlInput1">{{ __('site.adults') }}</label>
                             <input type="number" min="0" class="form-control" id="exampleFormControlInput1"
                                    name="adults">
                             @error('adults') <span class="text-danger error">{{ $message }}</span>@enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlInput2">Children</label>
+                            <label for="exampleFormControlInput2">{{ __('site.children') }}</label>
                             <input type="number" min="0" class="form-control" id="exampleFormControlInput2"
                                    name="children">
                             @error('children') <span class="text-danger error">{{ $message }}</span>@enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlInput2">Baby</label>
+                            <label for="exampleFormControlInput2">{{ __('site.baby') }}</label>
                             <input type="number" min="0" class="form-control" id="exampleFormControlInput2" name="baby">
                             @error('baby') <span class="text-danger error">{{ $message }}</span>@enderror
                         </div>
@@ -95,8 +94,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary close-modal">Reserve</button>
+                        <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">{{ __('site.close') }}</button>
+                        <button type="submit" class="btn btn-primary close-modal">{{ __('site.reserve') }}</button>
                     </div>
                 </form>
             </div>

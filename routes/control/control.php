@@ -44,14 +44,17 @@
 
     });
 
-    Route::group(['prefix' => 'client'], function () {
+    Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
+        Route::group(['prefix' => 'client'], function () {
 
-        Route::resource('balances', BalanceController::class)->except(['store', 'edit', 'destroy', 'update']);
+            Route::macro('resourceAndActive', function ($url, $controller) {
+                Route::post("{$url}/send", "App\\Http\\Controllers\\Control\\{$controller}@reply")->name("{$url}.reply");
+                Route::resource($url, 'App\Http\Controllers\Control\\' . $controller, ['parameters' => ['destroy' => '']]);
+            });
 
-        Route::macro('resourceAndActive', function ($url, $controller) {
-            Route::post("{$url}/send", "App\\Http\\Controllers\\Control\\{$controller}@reply")->name("{$url}.reply");
-            Route::resource($url, 'App\Http\Controllers\Control\\' . $controller, ['parameters' => ['destroy' => '']]);
+            Route::resourceAndActive('inbox', 'MailController');
+
+            Route::resource('balances', BalanceController::class)->except(['store', 'edit', 'destroy', 'update']);
+
         });
-
-        Route::resourceAndActive('inbox', 'MailController');
     });

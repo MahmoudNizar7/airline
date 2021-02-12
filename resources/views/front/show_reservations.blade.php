@@ -4,7 +4,7 @@
     <div class="content-homepage">
         <div class="content-header-homepage">
             <div class="container">
-                <h2>رحلات {{ auth('client')->user()->name }}</h2>
+                <h2> {{ ucfirst(auth('client')->user()->name) .' '. __('site.trips') }}</h2>
             </div>
         </div>
         <div class="content-body-homepage">
@@ -13,22 +13,22 @@
                     <div class="row justify-content-center pt-10">
                         <div class="col-xl-12">
                             <table class="table table-bordered table-hover table-striped ">
-                                <caption>Reservation Details</caption>
+                                <caption>{{ __('site.reservation_details') }}</caption>
                                 <thead class="thead-dark">
                                 <tr class="text-center">
-                                    <th>PNR</th>
-                                    <th><i class="fas fa-map-marker-alt"></i>Reservation Type</th>
-                                    <th><i class="fas fa-map-marker-alt"></i>From</th>
-                                    <th><i class="fas fa-globe-americas"></i>To</th>
-                                    <th><i class="fas fa-list-ol"></i>Trip Number</th>
-                                    <th><i class="fas fa-plane-departure"></i>Flying Number</th>
-                                    <th><i class="far fa-calendar-alt"></i>Trip Date</th>
-                                    <th><i class="fas fa-clock"></i>Trip Hour</th>
-                                    <th>Adults</th>
-                                    <th>Children</th>
-                                    <th>Baby</th>
-                                    <th>Total Cost</th>
-                                    <th>Options</th>
+                                    <th>{{ __('site.PNR') }}</th>
+                                    <th><i class="fas fa-map-marker-alt"></i>{{ __('site.reservation_type') }}</th>
+                                    <th><i class="fas fa-map-marker-alt"></i>{{ __('site.from') }}</th>
+                                    <th><i class="fas fa-globe-americas"></i>{{ __('site.to') }}</th>
+                                    <th><i class="fas fa-list-ol"></i>{{ __('site.trip_number') }}</th>
+                                    <th><i class="fas fa-plane-departure"></i>{{ __('site.flying_line') }}</th>
+                                    <th><i class="far fa-calendar-alt"></i>{{ __('site.trip_Date') }}</th>
+                                    <th><i class="fas fa-clock"></i>{{ __('site.trip_hour') }}</th>
+                                    <th>{{ __('site.adults') }}</th>
+                                    <th>{{ __('site.children') }}</th>
+                                    <th>{{ __('site.baby') }}</th>
+                                    <th>{{ __('site.total_cost') }}</th>
+                                    <th>{{ __('site.options') }}</th>
                                 </tr>
                                 </thead>
 
@@ -37,7 +37,7 @@
                                     @foreach($reservations as $reservation)
                                         <tr>
                                             <td>{{ $reservation->PNR }}</td>
-                                            <td>{{ $reservation->confirmation ? 'Confirmed reservation' : 'Initial reservation' }}</td>
+                                            <td>{{ $reservation->confirmation ? __('site.confirmed_reservation') : __('site.initial_reservation') }}</td>
                                             <td>{{ $reservation->trip->from }}</td>
                                             <td>{{ $reservation->trip->to }}</td>
                                             <td>{{ $reservation->trip->travel_no }}</td>
@@ -58,7 +58,7 @@
                                     </tbody>
                                 @else
                                     <tr>
-                                        <td style="text-align: center" colspan="13">لايوجد رحلات</td>
+                                        <td style="text-align: center" colspan="13">{{ __('site.no_trips') }}</td>
                                     </tr>
                                 @endif
                             </table>

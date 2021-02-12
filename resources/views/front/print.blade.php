@@ -14,24 +14,23 @@
         <div class="main-print" style="background-color: #FFF; padding: 40px 30px;">
             <h1 style="/*float:left; */  text-align: center; margin: 0px; font-size: 30px;"><img
                     src="{{ asset('assets/images/' . $data[3]->value) }}" class="img-fluid" height="50px"></h1>
-            <h1 style="text-align: center;text-align: center; margin: 0px; font-size: 30px;">شركة المصطفى للسياحة
-                والسفر</h1>
+            <h1 style="text-align: center;text-align: center; margin: 0px; font-size: 30px;">{{ __('site.print_title') }}</h1>
             <div class="clearfix" style="clear: both;"></div>
             <div class="print-header"
                  style="  display: flex;border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px;">
                 <div style="width: 30%; float: right;">
                     <p style="margin: 0px; font-size: 13px;">{{ $data[0]->value }}</p>
-                    <p style="margin: 0px; font-size: 13px;">جوال : {{ $data[2]->value }}</p>
+                    <p style="margin: 0px; font-size: 13px;">{{ __('phone') }}: {{ $data[2]->value }}</p>
                 </div>
                 <div style="width: 40%; float: right;text-align: center;">
-                    <p style="margin-top: 0;">E-mail : {{ $data[1]->value }}</p>
+                    <p style="margin-top: 0;">{{ __('email') }} : {{ $data[1]->value }}</p>
 
 
                 </div>
                 <div style="width: 30%; float: right;">
-                    <p style="margin: 0px; font-size: 13px;text-align: left;">Status : {{ $reservation->count() > 0 ? ($reservation->confirmation ? ' Confirmed reservation' : 'Initial reservation' ) : '' }}</p>
-                    <p style="margin: 0px; font-size: 13px;text-align: left;">PNR : {{ $reservation->count() > 0 ? $reservation->PNR : '' }}</p>
-                    <p style="margin: 0px; font-size: 13px;text-align: left;">Booking Date : {{ $reservation->count() > 0 ? date('d/m/Y D', strtotime($reservation->created_at)) : '' }}</p>
+                    <p style="margin: 0px; font-size: 13px;text-align: left;">{{ __('site.status') }} : {{ $reservation->count() > 0 ? ($reservation->confirmation ? __('site.confirmed_reservation') : __('site.initial_reservation') ) : '' }}</p>
+                    <p style="margin: 0px; font-size: 13px;text-align: left;">{{ __('site.PNR') }} : {{ $reservation->count() > 0 ? $reservation->PNR : '' }}</p>
+                    <p style="margin: 0px; font-size: 13px;text-align: left;">{{ __('site.booking_date') }} : {{ $reservation->count() > 0 ? date('d/m/Y D', strtotime($reservation->created_at)) : '' }}</p>
 
                 </div>
             </div>
@@ -56,26 +55,26 @@
                     <tr class="text-center">
 
                         <th style="border: 1px solid #000; font-size: 12px; font-weight: bolder;">
-                            <i class="fas fa-map-marker-alt"></i>From
+                            <i class="fas fa-map-marker-alt"></i>{{ __('site.from') }}
                         </th>
                         <th style="border: 1px solid #000; font-size: 12px; font-weight: bolder;">
-                            <i class="fas fa-globe-americas"></i>To
+                            <i class="fas fa-globe-americas"></i>{{ __('site.to') }}
                         </th>
                         <th style="border: 1px solid #000; font-size: 12px; font-weight: bolder;">
-                            <i class="fas fa-list-ol"></i>Trip Number
+                            <i class="fas fa-list-ol"></i>{{ __('site.trip_number') }}
                         </th>
                         <th style="border: 1px solid #000; font-size: 12px; font-weight: bolder;">
-                            <i class="fas fa-plane-departure"></i>Flying line
+                            <i class="fas fa-plane-departure"></i>{{ __('site.flying_line') }}
                         </th>
                         <th style="border: 1px solid #000; font-size: 12px; font-weight: bolder;">
-                            <i class="far fa-calendar-alt"></i>Trip Date
+                            <i class="far fa-calendar-alt"></i>{{ __('site.trip_date') }}
                         </th>
                         <th style="border: 1px solid #000; font-size: 12px; font-weight: bolder;">
-                            <i class="fas fa-clock"></i>Trip Hour
+                            <i class="fas fa-clock"></i>{{ __('site.trip_hour') }}
                         </th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">Adults</th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">Children</th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">Baby</th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.adults') }}</th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.children') }}</th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.baby') }}</th>
 
                     </tr>
 
@@ -95,14 +94,14 @@
                         </tr>
                     @else
                         <tr>
-                            <td style="text-align: center" colspan="13">لايوجد رحلات</td>
+                            <td style="text-align: center" colspan="13">{{ __('site.no_trips') }}</td>
                         </tr>
                     @endif
                     </tbody>
 
                 </table>
                 <div style="float: right; width: 40%;">
-                    <p style="font-size: 12px;">Reservation Details</p>
+                    <p style="font-size: 12px;">{{ __('site.reservation_details') }}</p>
                 </div>
                 <div class="clearfix" style="clear: both;"></div>
                 <table class="table"
@@ -112,17 +111,13 @@
 
                     <tr class="text-center">
                         <th style="border: 1px solid #000; font-size: 12px; font-weight: normal;">#</th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">First Name</th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">Last Name</th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">Birth Of Date</th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">Nationality</th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">Passport Number</th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">Passport Expiration
-                            Date
-                        </th>
-                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">Adults | Children |
-                            Baby
-                        </th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.first_name') }}</th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.last_name') }}</th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.birth_of_date') }}</th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.nationality') }}</th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.passport_number') }}</th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.passport_ex_date') }}</th>
+                        <th style="border: 1px solid #000; font-size: 12px; font-weight: bold;">{{ __('site.reservation_type') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -141,7 +136,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td style="text-align: center" colspan="8">لايوجد رحلات</td>
+                            <td style="text-align: center" colspan="8">{{ __('site.no_trips') }}</td>
                         </tr>
                     @endif
                     </tbody>

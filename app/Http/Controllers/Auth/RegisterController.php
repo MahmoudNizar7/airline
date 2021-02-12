@@ -34,8 +34,6 @@
         {
             if (Auth::guard('client')) {
                 return '/';
-            } elseif (Auth::check()) {
-                return '/admin';
             }
         }
 

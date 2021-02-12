@@ -15,7 +15,7 @@
     <div class="content-homepage">
         <div class="content-header-homepage">
             <div class="container">
-                <h2>Balance</h2>
+                <h2>{{ __('site.balance') }}</h2>
             </div>
         </div>
         <div class="content-body-homepage">
@@ -27,12 +27,12 @@
                                 <thead class="thead-dark">
                                 <tr class="text-center">
                                     <th>#</th>
-                                    <th>رقم الحركة</th>
-                                    <th>قيمة الحركة</th>
-                                    <th>المبلغ الإجمالي</th>
-                                    <th>عن</th>
-                                    <th>تاريخ الحركة</th>
-                                    <th>توقيت الحركة</th>
+                                    <th>{{ __('site.movement_number') }}</th>
+                                    <th>{{ __('site.movement_value') }}</th>
+                                    <th>{{ __('site.remainder') }}</th>
+                                    <th>{{ __('site.about') }}</th>
+                                    <th>{{ __('site.movement_date') }}</th>
+                                    <th>{{ __('site.movement_time') }}</th>
                                 </tr>
                                 </thead>
 
@@ -53,7 +53,7 @@
 
                                     @else
                                         <tr>
-                                            <td style="text-align: center" colspan="9">لايوجد سجل للرصيد</td>
+                                            <td style="text-align: center" colspan="9">{{ __('site.no_balance_record') }}</td>
                                         </tr>
                                     @endif
                                     </tbody>
