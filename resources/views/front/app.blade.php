@@ -63,17 +63,17 @@
 
                 @if(auth('client')->check())
 
-                    <ul class="navbar-nav mr-4 mr-lg-auto">
+                    <ul class="navbar-nav ml-lg-auto">
 
 
-                            <li class="custom-select select-lang">
-                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                    <a rel="alternate" hreflang="{{ $localeCode }}"
-                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        <select class="custom-select select-lang">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <option><a rel="alternate" hreflang="{{ $localeCode }}"
+                                           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                         {{ $properties['native'] }}
-                                    </a>
-                                @endforeach
-                            </li>
+                                    </a></option>
+                            @endforeach
+                        </select>
 
                         <li class="nav-item dropdown nav-register ">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
@@ -106,7 +106,20 @@
 
                 @else
 
-                    <ul class="navbar-nav mr-4 mr-lg-auto ">
+
+                    <ul class="navbar-nav ml-lg-3  ">
+                        <li class="nav-itemr">
+                            <select class="custom-select select-lang" name="dropdown-menu">
+
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+
+                                        <option @if( LaravelLocalization::getCurrentLocale() == $localeCode ) selected @endif
+                                            value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</option>
+
+                                @endforeach
+
+                            </select>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ Route::has('register') ? route('register') : '#' }}">
                                 {{ __('site.sign_up') }}
@@ -115,9 +128,10 @@
                         <li class="nav-item nav-register">
                             <a class="nav-link btn-hover" href="{{ route('client.login') }}">
                                 <i class="icon-man-user"></i>
-                                {{ __('site.login') }}
+                                {{ __('site.sign_in') }}
                             </a>
                         </li>
+
                     </ul>
 
                 @endif
@@ -191,6 +205,15 @@
     window.livewire.on('userStore', () => {
         $('#exampleModal').modal('hide');
     });
+</script>
+<script>
+
+    $('select[name="dropdown-menu"]').change(function () {
+
+        window.location = $(this).val();
+
+    });
+
 </script>
 @yield('scripts')
 </body>

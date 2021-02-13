@@ -18,7 +18,7 @@
                             <form action="{{ route('register') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('name') }}">
+                                    <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('site.name') }}">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>
