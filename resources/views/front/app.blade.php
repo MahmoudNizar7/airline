@@ -63,7 +63,7 @@
 
                 @if(auth('client')->check())
 
-                    <ul class="navbar-nav ml-lg-auto">
+                    <ul class="navbar-nav mr-lg-auto">
 
 
                         <select class="custom-select select-lang">
