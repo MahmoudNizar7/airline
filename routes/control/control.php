@@ -11,6 +11,7 @@
     use App\Models\Control\Mail;
     use App\Models\Control\Setting;
     use App\Models\Control\Trip;
+    use App\Models\Front\Reservation;
     use Illuminate\Support\Facades\Route;
 
     Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
@@ -20,7 +21,8 @@
             $clients = Client::all();
             $trips = Trip::all();
             $mails = Mail::all();
-            return view('control.index', compact('image', 'clients', 'trips', 'mails'));
+            $reservations = Reservation::all();
+            return view('control.index', compact('image', 'clients', 'trips', 'mails','reservations'));
         })->name('admin');
 
         Route::macro('resourceAndActive', function ($url, $controller) {

@@ -63,14 +63,14 @@
 
                                                 <!-- Start-->
                                                 <div class="col-xl-3 col-sm-3 py-2">
-                                                    <a href="#" style="text-decoration: none; ">
+                                                    <a href="{{ route('reservations.admin_show') }}" style="text-decoration: none; ">
                                                         <div class="card bg-dark text-white h-100">
                                                             <div class="card-body bg-dark">
                                                                 <div class="rotate">
                                                                     <i class=" fas fa-ticket-alt fa-4x"></i>
                                                                 </div>
                                                                 <h6 class="text-uppercase mt-1" style="">حجز</h6>
-                                                                <h1 class="display-4">22</h1>
+                                                                <h1 class="display-4">{{ $reservations->count() }}</h1>
                                                             </div>
                                                         </div>
                                                     </a>
