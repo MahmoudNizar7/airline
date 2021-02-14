@@ -14,6 +14,7 @@
 
             Route::macro('resourceAndActive', function ($url, $controller) {
                 Route::get("{$url}/print/{reservation}", "App\\Http\\Controllers\\Front\\{$controller}@print")->name("{$url}.print");
+                Route::get("{$url}/client_trips/", "App\\Http\\Controllers\\Front\\{$controller}@admin_show")->name("{$url}.admin_show")->withoutMiddleware('client');
                 Route::resource($url, 'App\Http\Controllers\Front\\' . $controller)
                     ->names(['edit' => 'success']);
             });

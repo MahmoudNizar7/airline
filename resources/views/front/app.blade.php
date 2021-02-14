@@ -10,12 +10,22 @@
     <meta name="geo.region" content="country[-state]">
     <meta name="geo.placename" content="city/town">
     <link rel="stylesheet" href="{{ asset('front/css/style-font.css') }}">
-    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/bootstrap.select.min.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+{{--    <link rel="stylesheet" href="https://air.3sem.tech/front/css/style.css">--}}
+
+    @if( app()->getLocale() == 'ar' )
+        <link rel="stylesheet" href="{{ asset('front/css/bootstrap.rtl.css') }}">
+    @endif
     <link rel="stylesheet" href="{{ asset('front/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
 
     @livewireStyles
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
 @yield('style')
 
 <body>
@@ -66,13 +76,16 @@
                     <ul class="navbar-nav mr-lg-auto">
 
 
-                        <select class="custom-select select-lang">
+                        <select class="custom-select select-lang" name="dropdown-menu">
+
                             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                <option><a rel="alternate" hreflang="{{ $localeCode }}"
-                                           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                        {{ $properties['native'] }}
-                                    </a></option>
+
+                                <option @if( LaravelLocalization::getCurrentLocale() == $localeCode ) selected
+                                        @endif
+                                        value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</option>
+
                             @endforeach
+
                         </select>
 
                         <li class="nav-item dropdown nav-register ">
@@ -113,7 +126,8 @@
 
                                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
 
-                                        <option @if( LaravelLocalization::getCurrentLocale() == $localeCode ) selected @endif
+                                    <option @if( LaravelLocalization::getCurrentLocale() == $localeCode ) selected
+                                            @endif
                                             value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</option>
 
                                 @endforeach

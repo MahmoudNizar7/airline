@@ -363,7 +363,7 @@
                                 <ul class="m-menu__subnav">
 
                                     <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="#" class="m-menu__link ">
+                                        <a href="{{ route('reservations.admin_show') }}" class="m-menu__link ">
                                             <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
                                             <span class="m-menu__link-text">كل الحجوزات</span>
                                         </a>

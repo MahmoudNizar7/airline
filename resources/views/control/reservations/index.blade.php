@@ -1,15 +1,7 @@
 @extends('control.app')
-@section('style')
-
-    <style>
-        td{
-            text-align: center;
-        }
-    </style>
-
-@stop
 @section('content')
 
+    @php($title = "لوحة التحكم | قائمة الحجوزات")
     <div class="m-grid__item m-grid__item--fluid m-wrapper">
         <div class="m-content">
             <div class="row">
@@ -26,43 +18,46 @@
                                 </div>
                             </div>
                             <hr>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <table class="text-center table" cellspacing="0" width="100%">
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ __('site.first_name') }}</th>
-                                            <th>{{ __('site.last_name') }}</th>
-                                            <th>{{ __('site.birth_of_date') }}</th>
-                                            <th>{{ __('site.nationality') }}</th>
-                                            <th>{{ __('site.passport_number') }}</th>
-                                            <th>{{ __('site.passport_ex_date') }}</th>
-                                            <th>{{ __('site.adults') .' | '. __('site.children') .' | '. __('site.baby') }}</th>
+                                            <th>PNR</th>
+                                            <th>حالة الحجز</th>
+                                            <th>اجمالي التكلفة</th>
+                                            <th>الكبار</th>
+                                            <th>الاطفال</th>
+                                            <th>الرضع</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if($client_trips->count() > 0)
-                                            @foreach($client_trips as $client_trip)
+                                        @if($reservations->count() > 0)
+                                            @foreach($reservations as $index => $reservation)
                                                 <tr>
-                                                    <td>{{ $client_trip->id }}</td>
-                                                    <td>{{ $client_trip->first_name }}</td>
-                                                    <td>{{ $client_trip->last_name }}</td>
-                                                    <td>{{ $client_trip->DOB }}</td>
-                                                    <td>{{ $client_trip->nationality }}</td>
-                                                    <td>{{ $client_trip->passport_no }}</td>
-                                                    <td>{{ $client_trip->passport_expiration_date }}</td>
-                                                    <td>{{ $client_trip->type }}</td>
+                                                    <td>{{ $index+1 }}</td>
+                                                    <td><a target="_blank" href="{{ route('balances.admin_show', $reservation->PNR) }}">{{ $reservation->PNR }}</a></td>
+                                                    <td>{{ $reservation->confirmation ? 'حجز مؤكد' : 'حجز مبدئي' }}</td>
+                                                    <td>{{ $reservation->cost }}</td>
+                                                    <td>{{ $reservation->adult }}</td>
+                                                    <td>{{ $reservation->children }}</td>
+                                                    <td>{{ $reservation->baby }}</td>
+
                                                 </tr>
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td style="text-align: center" colspan="8">{{ __('site.no_trips') }}</td>
+                                                <td colspan="8">لايوجد بيانات</td>
                                             </tr>
                                         @endif
                                         </tbody>
                                     </table>
+                                    <div class="float-right">
+                                        {{--                                        {{ $clients->links('pagination::bootstrap-4') }}--}}
+                                        {{ $reservations->links('pagination::bootstrap-4') }}
+                                        {{--{{ $clients->links() }}--}}
+                                    </div>
                                 </div>
                             </div>
                         </div>

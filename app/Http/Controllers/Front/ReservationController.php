@@ -12,6 +12,11 @@
 
     class ReservationController extends Controller
     {
+        public function __construct()
+        {
+            $this->middleware('auth')->only('admin_show');
+        }
+
         public function index()
         {
             $trips = Trip::all();
@@ -47,6 +52,12 @@
         public function edit(Reservation $reservation)
         {
             return view('front.success', compact('reservation'));
+        }
+
+        public function admin_show()
+        {
+            $reservations = Reservation::orderBy('id','desc')->paginate(10);
+            return view('control.reservations.index', compact('reservations'));
         }
 
         public function update(Request $request, Reservation $reservation)
