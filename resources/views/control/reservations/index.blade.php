@@ -25,6 +25,8 @@
                                         <tr>
                                             <th>#</th>
                                             <th>PNR</th>
+                                            <th>العميل</th>
+                                            <th>الرحلة</th>
                                             <th>حالة الحجز</th>
                                             <th>اجمالي التكلفة</th>
                                             <th>الكبار</th>
@@ -38,6 +40,8 @@
                                                 <tr>
                                                     <td>{{ $index+1 }}</td>
                                                     <td><a target="_blank" href="{{ route('balances.admin_show', $reservation->PNR) }}">{{ $reservation->PNR }}</a></td>
+                                                    <td>{{ $reservation->client->name }}</td>
+                                                    <td>{{ $reservation->trip->travel_no }}</td>
                                                     <td>{{ $reservation->confirmation ? 'حجز مؤكد' : 'حجز مبدئي' }}</td>
                                                     <td>{{ $reservation->cost }}</td>
                                                     <td>{{ $reservation->adult }}</td>

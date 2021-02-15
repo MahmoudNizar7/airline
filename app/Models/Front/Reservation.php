@@ -2,6 +2,7 @@
 
     namespace App\Models\Front;
 
+    use App\Models\Control\Client;
     use App\Models\Control\Trip;
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Database\Eloquent\Model;
@@ -21,6 +22,11 @@
         public function trip()
         {
             return $this->belongsTo(Trip::class, 'trip_id', 'id');
+        }
+
+        public function client()
+        {
+            return $this->belongsTo(Client::class, 'client_id', 'id');
         }
 
     }
