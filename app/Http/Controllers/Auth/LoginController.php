@@ -44,9 +44,4 @@
             }
         }
 
-        public function logout()
-        {
-            Auth::guard('web')->logout();
-            Auth::guard('client')->logout();
-        }
     }
