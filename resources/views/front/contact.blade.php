@@ -144,7 +144,6 @@
                                                     <option data-content="<span>62</span><img width='40' height='30' src='{{ asset('front/img/png/id.png') }}'> ">62</option>
                                                     <option data-content="<span>98</span><img width='40' height='30' src='{{ asset('front/img/png/ir.png') }}'> ">98</option>
                                                     <option data-content="<span>353</span><img width='40' height='30' src='{{ asset('front/img/png/ie.png') }}'> ">353</option>
-                                                    <option data-content="<span>972</span><img width='40' height='30' src='{{ asset('front/img/png/il.png') }}'> ">972</option>
                                                     <option data-content="<span>39</span><img width='40' height='30' src='{{ asset('front/img/png/it.png') }}'> ">39</option>
                                                     <option data-content="<span>225</span><img width='40' height='30' src='{{ asset('front/img/png/ci.png') }}'> ">225</option>
                                                     <option data-content="<span>+1-876</span><img width='40' height='30' src='{{ asset('front/img/png/jm.png') }}'> ">+1-876</option>
