@@ -40,7 +40,7 @@
                                                 <tr>
                                                     <td>{{ $index+1 }}</td>
                                                     <td><a target="_blank" href="{{ route('balances.admin_show', $reservation->PNR) }}">{{ $reservation->PNR }}</a></td>
-                                                    <td>{{ $reservation->client->name }}</td>
+                                                    <td><a href="{{ route('clients.show',$reservation->client->id) }}">{{ $reservation->client->name }}</a></td>
                                                     <td>{{ $reservation->trip->travel_no }}</td>
                                                     <td>{{ $reservation->confirmation ? 'حجز مؤكد' : 'حجز مبدئي' }}</td>
                                                     <td>{{ $reservation->cost }}</td>
