@@ -164,19 +164,19 @@
                 <div class="col-lg-4 text-center text-lg-center">
                     <a class="btn-show-all bg-white text-dark wow fadeInUp hvr-bounce-to-top" data-wow-duration="1s"
                        data-wow-delay=".2s" target="_blank" href=""><i class="icon-at"></i>
-                        {{ $app_data[7]->value }}
+                        {{ $app_data[6]->value }}
                     </a>
                 </div>
                 <div class="col-lg-4 text-center text-lg-center">
                     <a class="btn-show-all bg-white text-dark wow fadeInUp hvr-bounce-to-top" data-wow-duration="1s"
                        data-wow-delay=".2s" target="_blank" href=""><i class="icon-map"></i>
-                        {{ $app_data[2]->value }}
+                        {{ $app_data[0]->value }}
                     </a>
                 </div>
                 <div class="col-lg-4 text-center text-lg-center">
                     <a class="btn-show-all bg-white text-dark wow fadeInUp hvr-bounce-to-top" data-wow-duration="1s"
                        data-wow-delay=".2s" target="_blank" href=""><i class="icon-whatsapp-2"></i>
-                        {{ $app_data[6]->value }}
+                        {{ $app_data[7]->value }}
                     </a>
                 </div>
             </div>
