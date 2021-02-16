@@ -40,7 +40,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-0">
         <div class="container">
             <a class="navbar-brand mx-0" href="{{ route('home') }}"><img
-                    src="{{ asset('assets/images/'. $app_data[2]->value) }}" alt=""></a>
+                    src="{{ asset('assets/images/'. $app_data[0]->value) }}" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
