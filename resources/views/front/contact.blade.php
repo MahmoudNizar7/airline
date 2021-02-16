@@ -38,6 +38,7 @@
                                             <div class="input-group-prepend">
                                                 <select class="selectpicker" name="nationality">
                                                     <option data-content="<span>970</span><img width='40' height='30' src='{{ asset('front/img/png/ps.png') }}'> ">970</option>
+                                                    <option data-content="<span>966</span><img width='40' height='30' src='{{ asset('front/img/png/sa.png') }}'> ">966</option>
                                                     <option data-content="<span>964</span><img width='40' height='30' width='40' height='30' src='{{ asset('front/img/png/iq.png') }}'> ">964</option>
                                                     <option data-content="<span>93</span><img width='40' height='30' width='40' height='30' src='{{ asset('front/img/png/af.png') }}'> ">93</option>
                                                     <option data-content="<span>355</span><img width='40' height='30' src='{{ asset('front/img/png/al.png') }}'> ">355</option>
@@ -232,7 +233,6 @@
                                                     <option data-content="<span>+1-784</span><img width='40' height='30' src='{{ asset('front/img/png/vc.png') }}'> ">+1-784</option>
                                                     <option data-content="<span>378</span><img width='40' height='30' src='{{ asset('front/img/png/sm.png') }}'> ">378</option>
                                                     <option data-content="<span>239</span><img width='40' height='30' src='{{ asset('front/img/png/st.png') }}'> ">239</option>
-                                                    <option data-content="<span>966</span><img width='40' height='30' src='{{ asset('front/img/png/sa.png') }}'> ">966</option>
                                                     <option data-content="<span>221</span><img width='40' height='30' src='{{ asset('front/img/png/sn.png') }}'> ">221</option>
                                                     <option data-content="<span>381</span><img width='40' height='30' src='{{ asset('front/img/png/rs.png') }}'> ">381</option>
                                                     <option data-content="<span>248</span><img width='40' height='30' src='{{ asset('front/img/png/sc.png') }}'> ">248</option>
