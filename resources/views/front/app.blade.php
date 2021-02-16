@@ -110,7 +110,7 @@
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     <i class="fa fa-sign-out"></i> {{ __('site.log_out') }} </a>
                                 <form id="logout-form" action="{{ route('client.logout') }}"
-                                      method="POST" class="d-none">
+                                      method="post" class="d-none">
                                     @csrf
                                 </form>
                             </div>

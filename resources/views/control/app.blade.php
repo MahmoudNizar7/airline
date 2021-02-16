@@ -177,13 +177,12 @@
                                                         <li class="m-nav__separator m-nav__separator--fit">
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a href="{{ route('client.logout') }}"
+                                                            <a href="{{ route('logout') }}"
                                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                                               class="btn m-btn--pill    btn-secondary m-btn  m-btn--label-brand m-btn--bolder">تسجيل
-                                                                الخروج</a>
-                                                            <form id="logout-form" action="{{ route('client.logout') }}"
-                                                                  method="POST" class="d-none">
+                                                               class="btn m-btn--pill btn-secondary m-btn m-btn--label-brand m-btn--bolder">تسجيل خروج</a>
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none">
                                                                 @csrf
+                                                                @method('POST')
                                                             </form>
                                                         </li>
                                                     </ul>

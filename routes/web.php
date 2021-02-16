@@ -1,7 +1,5 @@
 <?php
 
-    use Illuminate\Support\Facades\Route;
-
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -13,8 +11,9 @@
     |
     */
 
-    Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
-        Auth::routes();
-    });
+
+    use Illuminate\Support\Facades\Auth;
+
+    Auth::routes();
 
 
