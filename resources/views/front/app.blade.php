@@ -40,7 +40,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-0">
         <div class="container">
             <a class="navbar-brand mx-0" href="{{ route('home') }}"><img
-                    src="{{ asset('assets/images/'.$app_data[8]->value) }}" alt=""></a>
+                    src="{{ asset('assets/images/'. $app_data[0]->value }}" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -164,19 +164,19 @@
                 <div class="col-lg-4 text-center text-lg-center">
                     <a class="btn-show-all bg-white text-dark wow fadeInUp hvr-bounce-to-top" data-wow-duration="1s"
                        data-wow-delay=".2s" target="_blank" href=""><i class="icon-at"></i>
-                        {{ $app_data[6]->value }}
+                        {{ $app_data[7]->value }}
                     </a>
                 </div>
                 <div class="col-lg-4 text-center text-lg-center">
                     <a class="btn-show-all bg-white text-dark wow fadeInUp hvr-bounce-to-top" data-wow-duration="1s"
                        data-wow-delay=".2s" target="_blank" href=""><i class="icon-map"></i>
-                        {{ $app_data[1]->value }}
+                        {{ $app_data[2]->value }}
                     </a>
                 </div>
                 <div class="col-lg-4 text-center text-lg-center">
                     <a class="btn-show-all bg-white text-dark wow fadeInUp hvr-bounce-to-top" data-wow-duration="1s"
                        data-wow-delay=".2s" target="_blank" href=""><i class="icon-whatsapp-2"></i>
-                        {{ $app_data[7]->value }}
+
                     </a>
                 </div>
             </div>
@@ -187,14 +187,14 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <p class="mb-0">{{ $app_data[0]->value }}</p>
+                    <p class="mb-0">{{ $app_data[1]->value }}</p>
                 </div>
                 <div class="col-lg-6">
                     <div class="social">
-                        <a href="{{ $app_data[2]->value }}" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="{{ $app_data[3]->value }}" target="_blank"><i class="icon-twitter"></i></a>
-                        <a href="{{ $app_data[4]->value }}" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="{{ $app_data[5]->value }}" target="_blank"><i class="icon-whatsapp-2"></i></a>
+                        <a href="{{ $app_data[3]->value }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="{{ $app_data[4]->value }}" target="_blank"><i class="icon-twitter"></i></a>
+                        <a href="{{ $app_data[5]->value }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ $app_data[6]->value }}" target="_blank"><i class="icon-whatsapp-2"></i></a>
                     </div>
                 </div>
             </div>
