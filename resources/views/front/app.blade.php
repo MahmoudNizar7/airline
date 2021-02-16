@@ -176,7 +176,7 @@
                 <div class="col-lg-4 text-center text-lg-center">
                     <a class="btn-show-all bg-white text-dark wow fadeInUp hvr-bounce-to-top" data-wow-duration="1s"
                        data-wow-delay=".2s" target="_blank" href=""><i class="icon-whatsapp-2"></i>
-
+                        {{ $app_data[6]->value }}
                     </a>
                 </div>
             </div>
