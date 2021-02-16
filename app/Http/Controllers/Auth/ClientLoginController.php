@@ -31,4 +31,5 @@
         {
             Auth::guard('client')->logout();
         }
+
     }
