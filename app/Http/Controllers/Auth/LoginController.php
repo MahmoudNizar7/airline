@@ -4,6 +4,7 @@
 
     use App\Http\Controllers\Controller;
     use Illuminate\Foundation\Auth\AuthenticatesUsers;
+    use Illuminate\Support\Facades\Auth;
 
     class LoginController extends Controller
     {
@@ -41,5 +42,11 @@
             } elseif (auth('client')->check()) {
                 return redirect()->route('home');
             }
+        }
+
+        public function logout()
+        {
+            Auth::guard('web')->logout();
+            Auth::guard('client')->logout();
         }
     }
