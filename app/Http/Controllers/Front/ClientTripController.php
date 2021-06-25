@@ -16,11 +16,6 @@
 
     class ClientTripController extends Controller
     {
-        public function index()
-        {
-            //
-        }
-
         public function create(Request $request)
         {
             $adults = $request->adults;
@@ -29,6 +24,11 @@
             $seats = $adults + $children + $baby;
 
             $trip = Trip::findOrFail($request->trip_id);
+
+            if ($seats == 0){
+                Alert::error(__('القيمة المدخلة غير صحيحة'));
+                return redirect()->back();
+            }
 
             if ($seats <= $trip->seats) {
 
@@ -39,7 +39,6 @@
                 }
                 Alert::error(__('site.have_not_balance'));
                 return redirect()->back();
-
             }
             Alert::error(__('site.have_not_seats'));
             return redirect()->back();
@@ -80,9 +79,7 @@
                     if ((!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->adults['passport_ex_date'][$no]), 'قبل')) && (!Str::contains(Carbon::parse($trip->date)->diffForHumans($request->adults['passport_ex_date'][$no]), 'before'))) {
                         Alert::error(__('site.passport_not_valid') . date('Y-m-d', strtotime($trip->date)));
                         return redirect()->back();
-
                     }
-
                 }
             }
             if ($children > 0) {
@@ -108,7 +105,6 @@
                         Alert::error(__('site.passport_not_valid') . date('Y-m-d', strtotime($trip->date)));
                         return redirect()->back();
                     }
-
                 }
             }
             if ($baby > 0) {
@@ -133,7 +129,6 @@
                         Alert::error(__('site.passport_not_valid') . date('Y-m-d', strtotime($trip->date)));
                         return redirect()->back();
                     }
-
                 }
             }
 
@@ -233,18 +228,4 @@
             return view('front.show_trips', compact('reservation', 'client_trips'));
         }
 
-        public function edit(ClientTrip $clientTrip)
-        {
-            //
-        }
-
-        public function update(Request $request, ClientTrip $clientTrip)
-        {
-            //
-        }
-
-        public function destroy(ClientTrip $clientTrip)
-        {
-            //
-        }
     }

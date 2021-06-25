@@ -25,9 +25,7 @@
                 'countries' => 'c,r,u,d',
                 'balances' => 'c,r,u,d',
             ],
-            'client' => [
-
-            ],
+            'client' => [],
         ],
 
         'permissions_map' => [

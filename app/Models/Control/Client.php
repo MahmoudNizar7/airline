@@ -5,6 +5,8 @@
 
     use App\Models\Front\Reservation;
     use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Relations\HasMany;
+    use Illuminate\Database\Eloquent\Relations\HasOne;
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Laratrust\Traits\LaratrustUserTrait;
 
@@ -14,17 +16,17 @@
 
         protected $guarded = [];
 
-        public function balance()
+        public function balance(): HasOne
         {
             return $this->hasOne(Balance::class, 'client_id', 'id');
         }
 
-        public function movements()
+        public function movements(): HasMany
         {
             return $this->hasMany(Movement::class, 'client_id', 'id');
         }
 
-        public function client()
+        public function reservation(): HasMany
         {
             return $this->hasMany(Reservation::class, 'client_id', 'id');
         }

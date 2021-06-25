@@ -75,7 +75,7 @@
                 <div class="m-stack__item m-brand  m-brand--skin-dark " style="background-color: white">
                     <div class="m-stack m-stack--ver m-stack--general">
                         <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                            <a href="#" target="_blank" i class="m-brand__logo-wrapper">
+                            <a href="{{ route('home') }}" target="_blank" i class="m-brand__logo-wrapper">
                                 <img alt="" style="width: 125px;height: 70px; "
                                      src="{{ asset('assets/images/'.$image->value) }}"/>
                             </a>
@@ -479,6 +479,8 @@
 @livewireScripts
 @include('sweetalert::alert')
 
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <x-livewire-alert::scripts/>
 @yield('scripts')
 </body>

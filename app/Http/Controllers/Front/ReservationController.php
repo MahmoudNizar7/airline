@@ -8,7 +8,6 @@
     use App\Models\Control\Trip;
     use App\Models\Front\ClientTrip;
     use App\Models\Front\Reservation;
-    use Illuminate\Http\Request;
 
     class ReservationController extends Controller
     {
@@ -21,16 +20,6 @@
         {
             $trips = Trip::all();
             return view('front.home', ['trips' => $trips]);
-        }
-
-        public function create()
-        {
-            //
-        }
-
-        public function store(Request $request)
-        {
-            //
         }
 
         public function show($id)
@@ -56,17 +45,8 @@
 
         public function admin_show()
         {
-            $reservations = Reservation::orderBy('id','desc')->paginate(10);
+            $reservations = Reservation::orderBy('id', 'desc')->paginate(10);
             return view('control.reservations.index', compact('reservations'));
         }
 
-        public function update(Request $request, Reservation $reservation)
-        {
-            //
-        }
-
-        public function destroy(Reservation $reservation)
-        {
-            //
-        }
     }

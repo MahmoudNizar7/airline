@@ -115,23 +115,25 @@
                                                         <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>رقم الحركة</th>
-                                                            <th>قيمة الحركة</th>
-                                                            <th>إجمالي الرصيد</th>
-                                                            <th>عن</th>
-                                                            <th>تاريخ وتوقيت الحركة</th>
+                                                            <th>رقم التذكرة</th>
+                                                            <th>عدد الكبار</th>
+                                                            <th>عدد الاطفال</th>
+                                                            <th>عدد الرضع</th>
+                                                            <th>التكلفة</th>
+                                                            <th>تاريخ و توقيت الحجز</th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
                                                         @if($client != '')
-                                                            @foreach($client->movements as $index => $movement)
+                                                            @foreach($client->reservation as $index => $reserve)
                                                                 <tr>
                                                                     <td>{{ $index + 1 }}</td>
-                                                                    <td>{{ $movement->id }}</td>
-                                                                    <td>{{ $movement->value }}</td>
-                                                                    <td>{{ $movement->remainder }}</td>
-                                                                    <td>{{ $movement->about }}</td>
-                                                                    <td>{{ $movement->created_at }}</td>
+                                                                    <td>{{ $reserve->PNR }}</td>
+                                                                    <td>{{ $reserve->adult }}</td>
+                                                                    <td>{{ $reserve->children }}</td>
+                                                                    <td>{{ $reserve->baby }}</td>
+                                                                    <td>{{ $reserve->cost }}</td>
+                                                                    <td>{{ $reserve->created_at }}</td>
                                                                 </tr>
                                                             @endforeach
                                                         @endif

@@ -17,7 +17,7 @@
          *
          * @var string
          */
-        public const HOME = '/home';
+        public const HOME = '/';
 
         /**
          * The controller namespace for the application.
@@ -47,6 +47,7 @@
                     ->namespace($this->namespace)
                     ->group(base_path('routes/web.php'));
 
+                // my routes
                 Route::middleware('web')
                     ->group(base_path('routes/control/control.php'));
 

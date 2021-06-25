@@ -19,7 +19,6 @@
             return view('control.settings.index', compact('settings'));
         }
 
-
         public function profile_show()
         {
             return view('control.settings.profile');
@@ -30,6 +29,7 @@
             $request->validate([
                 'name' => 'required'
             ]);
+
             if ($request->name != auth()->user()->name) {
                 auth()->user()->update(['name' => $request->name]);
                 Alert::success('تم حفظ التغييرات بنجاح');

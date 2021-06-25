@@ -31,6 +31,7 @@
         public function __construct()
         {
             $this->middleware('guest')->except('logout');
+            $this->middleware('guest:client')->except('logout');
         }
 
 
