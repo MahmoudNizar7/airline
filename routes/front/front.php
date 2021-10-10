@@ -44,6 +44,4 @@
         Route::view('/client/register', 'auth.client_register')->name('client.register');
         Route::post('/client/register', [ClientRegisterController::class, 'register'])->name('client.register');
 
-        // all ok
-
     });
