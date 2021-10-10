@@ -138,7 +138,7 @@
                             </select>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ Route::has('register') ? route('register') : '#' }}">
+                            <a class="nav-link" href="{{ route('client.register') }}">
                                 {{ __('site.sign_up') }}
                             </a>
                         </li>

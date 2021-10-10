@@ -111,7 +111,7 @@
 
         public function guard()
         {
-            return Auth::guard('client');
+            //return Auth::guard('client');
         }
 
     }

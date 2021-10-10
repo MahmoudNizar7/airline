@@ -15,7 +15,7 @@
                         <div class="col-lg-6">
                             <div class="content-warper wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                                 <h3 class="two-line-heading text-center">{{ __('site.sign_up') }}</h3>
-                                <form action="{{ route('register') }}" method="POST">
+                                <form action="{{ route('client.register') }}" method="POST">
                                 @csrf
                                     <div class="form-group">
                                         <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('site.name') }} ">

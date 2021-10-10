@@ -19,10 +19,21 @@
 
         public function index(Request $request)
         {
+            /*
+            $clients = Client::whereRoleIs('client')
+                ->when($request->search, function ($query) use ($request) {
+
+                    return $query->where('name', 'like', '%' . $request->search . '%');
+
+                })->latest()->paginate(10);
+            */
+
             $clients = Client::whereRoleIs('client')->where(function ($q) use ($request) {
+
                 return $q->when($request->search, function ($query) use ($request) {
                     return $query->where('name', 'like', '%' . $request->search . '%');
                 });
+
             })->latest()->paginate(10);
 
             return view('control/clients/index', compact('clients'));

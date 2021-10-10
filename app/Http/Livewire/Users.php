@@ -11,7 +11,6 @@
         public $name;
         public $email;
         public $password;
-
         public $user_id;
 
         public function mount($user = '')

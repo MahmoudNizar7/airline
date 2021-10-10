@@ -1,6 +1,7 @@
 <?php
 
     use App\Http\Controllers\Auth\ClientLoginController;
+    use App\Http\Controllers\Auth\ClientRegisterController;
     use App\Http\Controllers\Auth\RegisterController;
     use App\Http\Controllers\Front\ClientTripController;
     use Illuminate\Support\Facades\Route;
@@ -9,8 +10,9 @@
 
         Route::group(['middleware' => 'client'], function () {
 
-            Route::resource('client_trips', ClientTripController::class)->except(['index', 'edit', 'update', 'destroy']);
+            Route::post('/client/logout', [ClientLoginController::class, 'logout'])->name('client.logout');
 
+            Route::resource('client_trips', ClientTripController::class)->except(['index', 'edit', 'update', 'destroy']);
 
 
             Route::macro('resourceAndActive', function ($url, $controller) {
@@ -26,6 +28,7 @@
                 $client = auth('client')->user();
                 return view('front.profile', compact('client'));
             })->name('profile.show');
+
             Route::post('profile', [RegisterController::class, 'update'])->name('profile.update');
 
         });
@@ -36,6 +39,9 @@
         // client login
         Route::get('/client/login', [ClientLoginController::class, 'showLoginForm'])->name('client.login');
         Route::post('/client/login', [ClientLoginController::class, 'login'])->name('client.login.post');
-        Route::post('/client/logout', [ClientLoginController::class, 'logout'])->name('client.logout');
+
+        // client register
+        Route::view('/client/register', 'auth.client_register')->name('client.register');
+        Route::post('/client/register', [ClientRegisterController::class, 'register'])->name('client.register');
 
     });
